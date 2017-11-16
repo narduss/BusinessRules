@@ -1,0 +1,125 @@
+[PROGRAM]
+[COMMON]
+FROM ABC ABC
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Rules Queue:'),USE(?RulesQueue:Prompt)
+! ENTRY(@s255),USE(RulesQueue)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RulesQueue)
+RulesQueue               QUEUE,PRE(RQ)
+!!> GUID('eee2b422-b698-4777-b8b3-035c05c7336d'),PROMPT('Rules Queue:'),HEADER('Rules Queue'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Name:'),USE(?RQ:Name:Prompt)
+! ENTRY(@s255),USE(RQ:Name)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RQ:Name)
+Name                       STRING(255)
+!!> GUID('fb4a4105-9026-4625-897d-4a132b2858a6'),PROMPT('Name:'),HEADER('Name'),PICTURE(@s255),DERIVEDFROM('RUL:Name')
+[SCREENCONTROLS]
+! PROMPT('Description:'),USE(?RQ:Description:Prompt)
+! ENTRY(@s255),USE(RQ:Description)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RQ:Description)
+Description                STRING(255)
+!!> GUID('7f347219-ebaa-4b8f-8c48-d1682bba4d33'),PROMPT('Description:'),HEADER('Description'),PICTURE(@s255),DERIVEDFROM('RUL:Description')
+[SCREENCONTROLS]
+! PROMPT('Expression:'),USE(?RQ:Expression:Prompt)
+! ENTRY(@s255),USE(RQ:Expression)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RQ:Expression)
+Expression                 STRING(255)
+!!> GUID('a71f3917-34a2-46a0-8f6a-ff44446f83e2'),PROMPT('Expression:'),HEADER('Expression'),PICTURE(@s255),DERIVEDFROM('RUL:Expression')
+[SCREENCONTROLS]
+! PROMPT('Control Use:'),USE(?RQ:ControlUse:Prompt)
+! ENTRY(@s255),USE(RQ:ControlUse)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RQ:ControlUse)
+ControlUse                 STRING(255)
+!!> GUID('00e06464-38dc-4a9d-a14a-eb612453a2a6'),PROMPT('Control Use:'),HEADER('Control Use'),PICTURE(@s255),DERIVEDFROM('RUL:Control')
+[SCREENCONTROLS]
+! PROMPT('Offset:'),USE(?Offset:Prompt)
+! ENTRY(@n-14),USE(Offset),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(Offset),RIGHT(1)
+Offset                     LONG
+!!> GUID('147cea96-e08e-4d3b-b38e-60cd6bca85b9'),PROMPT('Offset:'),HEADER('Offset'),PICTURE(@n-14),JUSTIFY(RIGHT,1),DERIVEDFROM('RUL:Offset')
+                         END
+!!> GUID('c92e377d-a09e-4db1-ab72-dd8d30d139bc')
+[SCREENCONTROLS]
+! PROMPT('Rules Control Queue:'),USE(?RulesControlQueue:Prompt)
+! ENTRY(@s60),USE(RulesControlQueue)
+[REPORTCONTROLS]
+! STRING(@s60),USE(RulesControlQueue)
+RulesControlQueue        QUEUE,PRE(RCQ)
+!!> GUID('273257ae-a5a3-40c8-9bca-2c24884ef585'),PROMPT('Rules Control Queue:'),HEADER('Rules Control Queue'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Name:'),USE(?RCQ:Name:Prompt)
+! ENTRY(@s255),USE(RCQ:Name)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RCQ:Name)
+Name                       STRING(255)
+!!> GUID('0606ae8d-0a3f-49bc-bffa-0ed02f57ea7d'),PROMPT('Name:'),HEADER('Name'),PICTURE(@s255),DERIVEDFROM('CON:Name')
+[SCREENCONTROLS]
+! PROMPT('Control Use:'),USE(?RCQ:ControlUse:Prompt)
+! ENTRY(@s255),USE(RCQ:ControlUse)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RCQ:ControlUse)
+ControlUse                 STRING(255)
+!!> GUID('694c7e85-8f15-4376-bfb0-53e0bcd1003b'),PROMPT('Control Use:'),HEADER('Control Use'),PICTURE(@s255),DERIVEDFROM('CON:Control')
+[SCREENCONTROLS]
+! OPTION('Rule Action'),AT(,,50,72),USE(RCQ:RuleAction),BOXED
+! RADIO('RuleAction:Disable'),USE(?RCQ:RuleAction:Radio1)
+! RADIO('RuleAction:Enable'),USE(?RCQ:RuleAction:Radio2)
+! RADIO('RuleAction:None'),USE(?RCQ:RuleAction:Radio3)
+! RADIO('RuleAction:Hide'),USE(?RCQ:RuleAction:Radio4)
+! RADIO('RuleAction:UnHide'),USE(?RCQ:RuleAction:Radio5)
+! END
+[REPORTCONTROLS]
+! STRING(@n3),USE(RCQ:RuleAction)
+RuleAction                 BYTE
+!!> GUID('ba5d25b7-05cb-48e4-b52c-28841dd6fbf6'),VALID(INLIST('RuleAction:Disable|RuleAction:Enable|RuleAction:None|RuleAction:Hide|RuleAction:UnHide')),PROMPT('Rule Action:'),HEADER('Rule Action'),PICTURE(@n3),DERIVEDFROM('CON:RuleAction')
+                         END
+!!> GUID('5af1a1c1-ae2b-4fa6-a120-97d915862de1')
+[SCREENCONTROLS]
+! PROMPT('Rules Proc Queue:'),USE(?RulesProcQueue:Prompt)
+! ENTRY(@s70),USE(RulesProcQueue)
+[REPORTCONTROLS]
+! STRING(@s70),USE(RulesProcQueue)
+RulesProcQueue           QUEUE,PRE(RPQ)
+!!> GUID('411df93f-fb87-40fb-b40f-5460eb221f19'),PROMPT('Rules Proc Queue:'),HEADER('Rules Proc Queue'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Name:'),USE(?RPQ:Name:Prompt)
+! ENTRY(@s255),USE(RPQ:Name)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RPQ:Name)
+Name                       STRING(255)
+!!> GUID('2351526c-0d59-4f36-bec7-1469ebd2d14f'),PROMPT('Name:'),HEADER('Name'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Proc Name:'),USE(?RPQ:ProcName:Prompt)
+! ENTRY(@s255),USE(RPQ:ProcName)
+[REPORTCONTROLS]
+! STRING(@s255),USE(RPQ:ProcName)
+ProcName                   STRING(255)
+!!> GUID('2ec762a7-ec30-4382-8148-1443638f29ae'),PROMPT('Proc Name:'),HEADER('Proc Name'),PICTURE(@s255)
+                         END
+!!> GUID('8e6d14ef-fcfc-42e1-b6b2-0f8ec3fd0e9f')
+[EMBED]
+EMBED %AfterGlobalIncludes
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ Include('qs_RunRule_Main_Class.inc'),once
+[END]
+EMBED %AfterGlobalDataUser
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+TestRule       qs_RunRule_Main_Class
+[END]
+[END]
+[END]

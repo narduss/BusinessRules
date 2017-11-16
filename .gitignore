@@ -1,0 +1,26 @@
+# ignore following folders
+
+obj/
+map/
+source/
+log/
+
+# ignore everything
+*.*
+
+# include the following files
+!.gitignore
+!*.build
+!*.cwproj
+!*.dct
+!*.sln
+!*.apv
+!*.aff
+!*.bat
+!*.dbk
+!*.ico
+!*.manifest
+!*.pr
+!*.ver
+!*.sql
+!CA_Roots.pem

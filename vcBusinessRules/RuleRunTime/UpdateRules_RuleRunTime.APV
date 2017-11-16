@@ -1,0 +1,3162 @@
+[MODULE]
+NAME 'UpdateRules_RuleRunTime.clw'
+[COMMON]
+FROM ABC GENERATED
+[PROCEDURE]
+NAME UpdateRules
+PROTOTYPE '(*Long PLOC:SysIdRulesGroup)'
+PARAMETERS '(*Long PLOC:SysIdRulesGroup)'
+[COMMON]
+FROM ABC Window
+CATEGORY 'Form'
+[DATA]
+[SCREENCONTROLS]
+! ENTRY(@s80),USE(CurrentTab)
+[REPORTCONTROLS]
+! STRING(@s80),USE(CurrentTab)
+CurrentTab               STRING(80)
+!!> GUID('7696da0d-c2b4-43b2-8a59-f11ff63f254f'),PICTURE(@s80)
+ActionMessage            CSTRING(40)
+!!> GUID('0559001f-038a-48bf-a71d-81b211018fcf')
+[FILES]
+[PRIMARY]
+RuleProcOverride
+[INSTANCE]
+8
+[PRIMARY]
+RuleControls
+[INSTANCE]
+10
+[PRIMARY]
+Rules
+[INSTANCE]
+2
+[KEY]
+RUL:PK_Rule
+[SECONDARY]
+RulesGroup Rules
+[PROMPTS]
+%ButtonAction DEPEND %Control DEFAULT TIMES 13
+WHEN  ('') ('No Special Action')
+WHEN  ('?Cancel') ('No Special Action')
+WHEN  ('?Change') ('No Special Action')
+WHEN  ('?Change:2') ('No Special Action')
+WHEN  ('?Delete') ('No Special Action')
+WHEN  ('?Delete:2') ('No Special Action')
+WHEN  ('?Help') ('No Special Action')
+WHEN  ('?Insert') ('No Special Action')
+WHEN  ('?Insert:2') ('No Special Action')
+WHEN  ('?List') ('No Special Action')
+WHEN  ('?List:2') ('No Special Action')
+WHEN  ('?OK') ('No Special Action')
+WHEN  ('?Tab3') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 5
+WHEN  ('?Delete') ('')
+WHEN  ('?Delete:2') ('')
+WHEN  ('?Help') ('')
+WHEN  ('?Insert') ('')
+WHEN  ('?Insert:2') ('')
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 5
+WHEN  ('?Delete') ('')
+WHEN  ('?Delete:2') ('')
+WHEN  ('?Help') ('')
+WHEN  ('?Insert') ('')
+WHEN  ('?Insert:2') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 5
+WHEN  ('?Delete') ()
+WHEN  ('?Delete:2') ()
+WHEN  ('?Help') ()
+WHEN  ('?Insert') ()
+WHEN  ('?Insert:2') ()
+
+%ButtonThread DEPEND %Control LONG TIMES 5
+WHEN  ('?Delete') (0)
+WHEN  ('?Delete:2') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 13
+WHEN  ('') ('25000')
+WHEN  ('?Cancel') ('25000')
+WHEN  ('?Change') ('25000')
+WHEN  ('?Change:2') ('25000')
+WHEN  ('?Delete') ('25000')
+WHEN  ('?Delete:2') ('25000')
+WHEN  ('?Help') ('25000')
+WHEN  ('?Insert') ('25000')
+WHEN  ('?Insert:2') ('25000')
+WHEN  ('?List') ('25000')
+WHEN  ('?List:2') ('25000')
+WHEN  ('?OK') ('25000')
+WHEN  ('?Tab3') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 5
+WHEN  ('?Delete') ('')
+WHEN  ('?Delete:2') ('')
+WHEN  ('?Help') ('')
+WHEN  ('?Insert') ('')
+WHEN  ('?Insert:2') ('')
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 13
+WHEN  ('') ('None')
+WHEN  ('?Cancel') ('None')
+WHEN  ('?Change') ('None')
+WHEN  ('?Change:2') ('None')
+WHEN  ('?Delete') ('None')
+WHEN  ('?Delete:2') ('None')
+WHEN  ('?Help') ('None')
+WHEN  ('?Insert') ('None')
+WHEN  ('?Insert:2') ('None')
+WHEN  ('?List') ('None')
+WHEN  ('?List:2') ('None')
+WHEN  ('?OK') ('None')
+WHEN  ('?Tab3') ('None')
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%ClassItem UNIQUE DEFAULT  ('Default', 'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('WindowManager')
+WHEN  ('WindowToolbar') ('ToolbarClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 1
+WHEN  ('Default') ('Ask {20}PROCEDURE(),DERIVED', 'Init {19}PROCEDURE(),BYTE,PROC,DERIVED', |
+  'Kill {19}PROCEDURE(),BYTE,PROC,DERIVED', 'Reset {18}PROCEDURE(BYTE Force=0),DERIVED', |
+  'Run {20}PROCEDURE(),BYTE,PROC,DERIVED', 'Run {20}PROCEDURE(USHORT Number,BYTE Request),BYTE,PROC,DERIVED', |
+  'TakeAccepted {11}PROCEDURE(),BYTE,PROC,DERIVED')
+
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%ProcedureDisableEnhanceFocus LONG  (0)
+%ProcedureUseEnterInsteadTabOverride LONG  (0)
+%WindowUseEnterInsteadTab LONG  (1)
+%ProcedureUseEnterInsteadTabExcludeG LONG  (1)
+%WindowUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('WindowToolbar') ('Toolbar')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ADOBlob')
+WHEN  ('WindowToolbar') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%WindowStyles MULTI LONG  ()
+%WindowStyleFontName DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontNameIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontSize DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontSizeIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontStyle DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontStyleIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleFontColor DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleFontCharSet DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormal DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundNormalVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundNormalIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleForegroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleForegroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelected DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleBackgroundSelectedVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStyleBackgroundSelectedIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStylePicture DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureVariable DEPEND %WindowStyles DEFAULT TIMES 0
+
+%WindowStylePictureIsVariable DEPEND %WindowStyles LONG TIMES 0
+
+%WindowStyleOtherListboxes MULTI DEFAULT  ()
+%ProcedureAutoBindFields MULTI LONG  (1, 2, 3)
+%ProcedureAutoBindField DEPEND %ProcedureAutoBindFields DEFAULT TIMES 3
+WHEN  (1) ('RULCON:SysIdRules')
+WHEN  (2) ('RUL:SysIdRules')
+WHEN  (3) ('RULOVE:SysIdRules')
+
+%ProcedureAutoBindFieldTPL DEPEND %ProcedureAutoBindFields DEFAULT TIMES 3
+WHEN  (1) ('BrowseBox(ABC)')
+WHEN  (2) ('SaveButton(ABC)')
+WHEN  (3) ('BrowseBox(ABC)')
+
+%ProcedureAutoBindProcedures MULTI LONG  ()
+%ProcedureAutoBindProcedure DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindProcedureTPL DEPEND %ProcedureAutoBindProcedures DEFAULT TIMES 0
+
+%ProcedureAutoBindFieldsIgnored MULTI LONG  ()
+%ProcedureAutoBindFieldIgnored DEPEND %ProcedureAutoBindFieldsIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindProceduresIgnored MULTI LONG  ()
+%ProcedureAutoBindProcedureIgnored DEPEND %ProcedureAutoBindProceduresIgnored DEFAULT TIMES 0
+
+%ProcedureAutoBindValidToAddField LONG  (0)
+%ProcedureUserBindFields MULTI LONG  ()
+%ProcedureUserBindField DEPEND %ProcedureUserBindFields FIELD TIMES 0
+
+%ProcedureAutoBindFieldIgnore DEPEND %ProcedureAutoBindFields LONG TIMES 3
+WHEN  (1) (0)
+WHEN  (2) (0)
+WHEN  (3) (0)
+
+%ProcedureUserBindProcedures MULTI LONG  ()
+%ProcedureUserBindProcedure DEPEND %ProcedureUserBindProcedures PROCEDURE TIMES 0
+
+%ProcedureAutoBindProcedureIgnore DEPEND %ProcedureAutoBindProcedures LONG TIMES 0
+
+%ProcedureUserBindExpressions MULTI LONG  ()
+%ProcedureUserBindExpressionName DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ProcedureUserBindExpression DEPEND %ProcedureUserBindExpressions DEFAULT TIMES 0
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 5
+WHEN  ('?Delete') ()
+WHEN  ('?Delete:2') ()
+WHEN  ('?Help') ()
+WHEN  ('?Insert') ()
+WHEN  ('?Insert:2') ()
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 5
+WHEN  ('?Delete') (0)
+WHEN  ('?Delete:2') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 5
+WHEN  ('?Delete') ('')
+WHEN  ('?Delete:2') ('')
+WHEN  ('?Help') ('')
+WHEN  ('?Insert') ('')
+WHEN  ('?Insert:2') ('')
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 5
+WHEN  ('?Delete') ()
+WHEN  ('?Delete:2') ()
+WHEN  ('?Help') ()
+WHEN  ('?Insert') ()
+WHEN  ('?Insert:2') ()
+
+%PreLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEFAULT TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 15
+WHEN  ('') (1)
+WHEN  ('?Change') (1)
+WHEN  ('?Delete') (1)
+WHEN  ('?Delete:2') (1)
+WHEN  ('?Help') (1)
+WHEN  ('?Insert') (1)
+WHEN  ('?Insert:2') (1)
+WHEN  ('?List') (1)
+WHEN  ('?List:2') (1)
+WHEN  ('?RUL:ControlName') (1)
+WHEN  ('?RUL:Offset') (1)
+WHEN  ('?RUL:RuleDescription') (1)
+WHEN  ('?RUL:RuleName') (1)
+WHEN  ('?RULGRO:RulesGroupName') (1)
+WHEN  ('?Tab3') (1)
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 10
+WHEN  ('')TIMES 0
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 0
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List')TIMES 0
+WHEN  ('?List:2')TIMES 0
+WHEN  ('?Tab3')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 10
+WHEN  ('')TIMES 0
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 0
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List')TIMES 0
+WHEN  ('?List:2')TIMES 0
+WHEN  ('?Tab3')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 10
+WHEN  ('')TIMES 0
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 0
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List')TIMES 0
+WHEN  ('?List:2')TIMES 0
+WHEN  ('?Tab3')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 10
+WHEN  ('')TIMES 0
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 0
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List')TIMES 0
+WHEN  ('?List:2')TIMES 0
+WHEN  ('?Tab3')TIMES 0
+
+%ProcedureOneInstance LONG  (0)
+%ProcedureUseEnterInsteadTabExcludeListCombo LONG  (0)
+%ProcedureUseEnterInsteadTabEnableNextTabStop LONG  (0)
+%PreserveVarsLoc MULTI LONG  ()
+%PreserveVarLoc DEPEND %PreserveVarsLoc DEFAULT TIMES 0
+
+%ExtUITabIcon DEPEND %Control DEFAULT TIMES 0
+
+%ExtUITabStyleOverrideGlobal DEPEND %Control LONG TIMES 0
+
+%ExtUITabStyle DEPEND %Control DEFAULT TIMES 8
+WHEN  ('') ('Default')
+WHEN  ('?Change') ('Default')
+WHEN  ('?CurrentTab') ('Default')
+WHEN  ('?Help') ('Default')
+WHEN  ('?Insert') ('Default')
+WHEN  ('?Insert:2') ('Default')
+WHEN  ('?List') ('Default')
+WHEN  ('?List:2') ('Default')
+
+%FieldGradientColorType DEPEND %Control DEFAULT TIMES 7
+WHEN  ('') ('Off')
+WHEN  ('?Change') ('Off')
+WHEN  ('?Help') ('Off')
+WHEN  ('?Insert') ('Off')
+WHEN  ('?Insert:2') ('Off')
+WHEN  ('?List') ('Off')
+WHEN  ('?List:2') ('Off')
+
+%FieldGradientColorTypeVariable DEPEND %Control DEFAULT TIMES 7
+WHEN  ('') ('')
+WHEN  ('?Change') ('')
+WHEN  ('?Help') ('')
+WHEN  ('?Insert') ('')
+WHEN  ('?Insert:2') ('')
+WHEN  ('?List') ('')
+WHEN  ('?List:2') ('')
+
+%FieldGradientColorTypeIsVariable DEPEND %Control LONG TIMES 7
+WHEN  ('') (0)
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+%FieldGradientColorFrom DEPEND %Control LONG TIMES 7
+WHEN  ('') (-1)
+WHEN  ('?Change') (-1)
+WHEN  ('?Help') (-1)
+WHEN  ('?Insert') (-1)
+WHEN  ('?Insert:2') (-1)
+WHEN  ('?List') (-1)
+WHEN  ('?List:2') (-1)
+
+%FieldGradientColorFromVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorFromIsVariable DEPEND %Control LONG TIMES 7
+WHEN  ('') (0)
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+%FieldGradientColorTo DEPEND %Control LONG TIMES 7
+WHEN  ('') (-1)
+WHEN  ('?Change') (-1)
+WHEN  ('?Help') (-1)
+WHEN  ('?Insert') (-1)
+WHEN  ('?Insert:2') (-1)
+WHEN  ('?List') (-1)
+WHEN  ('?List:2') (-1)
+
+%FieldGradientColorToVariable DEPEND %Control DEFAULT TIMES 0
+
+%FieldGradientColorToIsVariable DEPEND %Control LONG TIMES 7
+WHEN  ('') (0)
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+%CheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedDisableControl DEPEND %CheckedDisables DEFAULT TIMES 0
+
+%CheckedDisableControlAction DEPEND %CheckedDisables DEFAULT TIMES 7
+WHEN  ('')TIMES 0
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Help')TIMES 0
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%UnCheckedDisables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedDisableControl DEPEND %UnCheckedDisables DEFAULT TIMES 0
+
+%UnCheckedDisableControlAction DEPEND %UnCheckedDisables DEFAULT TIMES 7
+WHEN  ('')TIMES 0
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Help')TIMES 0
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ActiveImageEnable DEPEND %Control LONG TIMES 0
+
+%AIObjectName DEPEND %Control DEFAULT TIMES 6
+WHEN  ('?Change') ('AIBtn16')
+WHEN  ('?Help') ('AIBtn27')
+WHEN  ('?Insert') ('AIBtn15')
+WHEN  ('?Insert:2') ('AIBtn20')
+WHEN  ('?List') ('AIBtn17')
+WHEN  ('?List:2') ('AIBtn22')
+
+%AIEnableMimicControl DEPEND %Control LONG TIMES 6
+WHEN  ('?Change') (1)
+WHEN  ('?Help') (1)
+WHEN  ('?Insert') (1)
+WHEN  ('?Insert:2') (1)
+WHEN  ('?List') (1)
+WHEN  ('?List:2') (1)
+
+%AIMimicControl DEPEND %Control DEFAULT TIMES 6
+WHEN  ('?Change') ('?CurrentTab')
+WHEN  ('?Help') ('?CurrentTab')
+WHEN  ('?Insert') ('?CurrentTab')
+WHEN  ('?Insert:2') ('?CurrentTab')
+WHEN  ('?List') ('?CurrentTab')
+WHEN  ('?List:2') ('?CurrentTab')
+
+%AIImgRound DEPEND %Control LONG TIMES 0
+
+%AIOverrideImg DEPEND %Control DEFAULT TIMES 0
+
+%AIOverrideImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIOverrideImgIsVariable DEPEND %Control LONG TIMES 6
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+%AIDisableImg DEPEND %Control DEFAULT TIMES 0
+
+%AIDisableImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIDisableImgIsVariable DEPEND %Control LONG TIMES 6
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+%AIHotImg DEPEND %Control DEFAULT TIMES 0
+
+%AIHotImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIHotImgIsVariable DEPEND %Control LONG TIMES 6
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+%AIPressedImg DEPEND %Control DEFAULT TIMES 0
+
+%AIPressedImgVariable DEPEND %Control DEFAULT TIMES 0
+
+%AIPressedImgIsVariable DEPEND %Control LONG TIMES 6
+WHEN  ('?Change') (0)
+WHEN  ('?Help') (0)
+WHEN  ('?Insert') (0)
+WHEN  ('?Insert:2') (0)
+WHEN  ('?List') (0)
+WHEN  ('?List:2') (0)
+
+[EMBED]
+EMBED %BrowseAfterSortStatement
+[INSTANCES]
+WHEN '8'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+If Self.Request = InsertRecord
+   RUL:SysIdRulesGroup = PLOC:SysIdRulesGroup
+   RUL:Offset          = 3
+   RUL:RuleActive      = 1
+Else
+End
+[END]
+[END]
+[END]
+[ADDITION]
+NAME ABC RecordValidation
+[INSTANCE]
+INSTANCE 1
+PROCPROP
+[PROMPTS]
+%ValidateOnAccept LONG  (1)
+%ValidateOnNonStopSelect LONG  (1)
+%ControlsExcluded MULTI LONG  ()
+%ControlToExclude DEPEND %ControlsExcluded DEFAULT TIMES 0
+
+%ValidateUsingColoration LONG  (0)
+%InvalidFieldColor LONG  (255)
+%InvalidPromptColor LONG  (255)
+%UseValidateMessage LONG  (0)
+%ValidationMessage DEFAULT  ('The values of Colored Fields are invalid, Please correct this information.')
+%MessageControl FIELD  ()
+[ADDITION]
+NAME ABC SaveButton
+[INSTANCE]
+INSTANCE 2
+PROCPROP
+[PROMPTS]
+%InsertAllowed LONG  (1)
+%InsertMessage DEFAULT  ('Business Rule Will Be Added')
+%ChangeAllowed LONG  (1)
+%ChangeMessage DEFAULT  ('Business Rule Will Be Changed')
+%DeleteAllowed LONG  (1)
+%DeleteMessage DEFAULT  ('Business Rule Will Be Deleted')
+%ViewMessage DEFAULT  ('View Business Rules')
+%MessageHeader LONG  (0)
+%ActionOnDelete DEFAULT  ('Standard Warning')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields DEFAULT TIMES 0
+
+%ActionOnCancel DEFAULT  ('Confirm cancel')
+%MessageLocation DEFAULT  ('Title Bar')
+%MessageStatusSection DEFAULT  ('0')
+%HistoryKey DEFAULT  ('CtrlH')
+%AppendToTitle LONG  (1)
+%AppendToTitleID DEFAULT  ('!RUL:RuleName')
+%AfterGoodInsert DEFAULT  ('Return to caller')
+%AskAfterAdd LONG  (0)
+[ADDITION]
+NAME ABC CancelButton
+[INSTANCE]
+INSTANCE 3
+[ADDITION]
+NAME ABC HelpButton
+[INSTANCE]
+INSTANCE 4
+[ADDITION]
+NAME ABC FormVCRControls
+[INSTANCE]
+INSTANCE 5
+PARENT 2
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('ToolbarUpdateClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('ToolbarForm')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[ADDITION]
+NAME ABC ViewFormActions
+[INSTANCE]
+INSTANCE 7
+[PROMPTS]
+%ForceViewOnly LONG  (0)
+%ViewAction DEPEND %Control DEFAULT TIMES 31
+WHEN  ('') ('None')
+WHEN  ('?Cancel') ('None')
+WHEN  ('?Change') ('Disable')
+WHEN  ('?Change:2') ('Disable')
+WHEN  ('?CurrentTab') ('None')
+WHEN  ('?Delete') ('Disable')
+WHEN  ('?Delete:2') ('Disable')
+WHEN  ('?Help') ('None')
+WHEN  ('?Insert') ('Disable')
+WHEN  ('?Insert:2') ('Disable')
+WHEN  ('?List') ('None')
+WHEN  ('?List:2') ('None')
+WHEN  ('?OK') ('None')
+WHEN  ('?PROMPT1') ('None')
+WHEN  ('?PROMPT2') ('None')
+WHEN  ('?RUL:Control:Prompt') ('None')
+WHEN  ('?RUL:ControlName') ('ReadOnly')
+WHEN  ('?RUL:Description:Prompt') ('None')
+WHEN  ('?RUL:Expression:Prompt') ('None')
+WHEN  ('?RUL:Name:Prompt') ('None')
+WHEN  ('?RUL:Offset') ('ReadOnly')
+WHEN  ('?RUL:Offset:Prompt') ('None')
+WHEN  ('?RUL:RuleActive') ('None')
+WHEN  ('?RUL:RuleDescription') ('ReadOnly')
+WHEN  ('?RUL:RuleExpression') ('None')
+WHEN  ('?RUL:RuleName') ('ReadOnly')
+WHEN  ('?RULGRO:RulesGroupName') ('ReadOnly')
+WHEN  ('?RULGRO:RulesGroupName:Prompt') ('None')
+WHEN  ('?Tab2') ('None')
+WHEN  ('?Tab3') ('None')
+WHEN  ('?Tab:1') ('None')
+
+%PropertyAssignments DEPEND %Control MULTI LONG TIMES 0
+
+%CtrlProperty DEPEND %PropertyAssignments DEFAULT TIMES 0
+
+%CtrlValue DEPEND %PropertyAssignments DEFAULT TIMES 0
+
+[ADDITION]
+NAME ABC WindowResize
+[FIELDPROMPT]
+%ResizeAnchorTop DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorLeft DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorRight DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorBottom DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowTop DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowLeft DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowRight DEPEND %Control LONG TIMES 0
+
+%ResizeAnchorGrowBottom DEPEND %Control LONG TIMES 0
+
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%UseAppStrategy DEFAULT  ('1')
+%AppStrategy DEFAULT  ('Surface')
+%RestrictMinSize LONG  (1)
+%WindowMinWidth DEFAULT  ('0')
+%WindowMaxWidth DEFAULT  ('0')
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('WindowResizeClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 1
+WHEN  ('Default') ('Init {19}PROCEDURE(BYTE AppStrategy=AppStrategy:Resize,BYTE SetWindowMinSize=False,BYTE SetWindowMaxSize=False)')
+
+%WindowMinHeight DEFAULT  ('')
+%RestrictMaxSize LONG  (0)
+%WindowMaxHeight DEFAULT  ('')
+%OverrideControls MULTI LONG  ()
+%OverrideControl DEPEND %OverrideControls DEFAULT TIMES 0
+
+%DisableResize DEPEND %OverrideControls LONG TIMES 0
+
+%HorizResize DEPEND %OverrideControls DEFAULT TIMES 0
+
+%VertResize DEPEND %OverrideControls DEFAULT TIMES 0
+
+%HorizPositional DEPEND %OverrideControls DEFAULT TIMES 0
+
+%VertPositional DEPEND %OverrideControls DEFAULT TIMES 0
+
+%AutoFindParents DEFAULT  ('Default')
+%DeferMoves DEFAULT  ('Default')
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('Resizer')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[ADDITION]
+NAME ABC BrowseBox
+[INSTANCE]
+INSTANCE 10
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default', 'Locator', 'Locator0', 'Step', 'Step0')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('BrowseClass')
+WHEN  ('Locator0') ('StepLocatorClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('Locator0') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 1
+WHEN  ('Default') ('Q {22}&Queue:Browse {18}!Reference to browse queue', 'Init {19}PROCEDURE(SIGNED ListBox,*STRING Posit,VIEW V,QUEUE Q,RelationManager RM,WindowManager WM)')
+
+%SQLViewFields MULTI DEFAULT  ()
+%TableSchematicsDescription DEFAULT  ('')
+%EnableQuickScan LONG  (0)
+%LoadMethod DEFAULT  ('Page')
+%AcceptToolBarControl LONG  (1)
+%InterLine DEFAULT  ('0')
+%LocatorType DEFAULT  ('Step')
+%OverrideDefaultLocator LONG  (0)
+%OverrideLocator DEFAULT  ('')
+%FindDefaultAnywhere LONG  (0)
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('Default') ('NO')
+WHEN  ('Locator0') ('NO')
+WHEN  ('Step0') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('BRW10')
+WHEN  ('Locator0') ('BRW10::Sort0:Locator')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('Default') (1)
+WHEN  ('Locator0') (1)
+WHEN  ('Step0') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('Default') (1)
+WHEN  ('Locator0') (1)
+WHEN  ('Step0') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('Default') ('ADOBlob')
+WHEN  ('Locator0') ('ADOBlob')
+WHEN  ('Step0') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('Default') (0)
+WHEN  ('Locator0') (0)
+WHEN  ('Step0') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 2
+WHEN  ('Default')TIMES 0
+WHEN  ('Locator0')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 2
+WHEN  ('Default')TIMES 0
+WHEN  ('Locator0')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%RecordFilter DEFAULT  ('RULCON:SysIdRules = RUL:SysIdRules')
+%RangeField COMPONENT  ()
+%RangeLimitType DEFAULT  ('File Relationship')
+%HigherKeys MULTI LONG  ()
+%HigherKey DEPEND %HigherKeys COMPONENT TIMES 0
+
+%HigherKeyField DEPEND %HigherKeys FIELD TIMES 0
+
+%HigherKeyValueType DEPEND %HigherKeys DEFAULT TIMES 0
+
+%HigherKeyValueVariable DEPEND %HigherKeys FIELD TIMES 0
+
+%HigherKeyValueFixed DEPEND %HigherKeys DEFAULT TIMES 0
+
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  (Rules)
+%AdditionalSortType DEFAULT  ('Manual')
+%AddSortFields DEFAULT  ('')
+%AddSortFieldsAssisted MULTI LONG  ()
+%AddSortFieldAssisted DEPEND %AddSortFieldsAssisted FIELD TIMES 0
+
+%AddSortFieldAssistedOrder DEPEND %AddSortFieldsAssisted DEFAULT TIMES 0
+
+%ResetFields MULTI LONG  ()
+%ResetField DEPEND %ResetFields FIELD TIMES 0
+
+%ScrollBehavior DEFAULT  ('Fixed Thumb')
+%ScrollKeyDistribution DEFAULT  ('Alpha')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution DEFAULT TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortKey DEPEND %SortOrder KEY TIMES 0
+
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortOverrideDefaultLocator DEPEND %SortOrder LONG TIMES 0
+
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortFindAnywhere DEPEND %SortOrder LONG TIMES 0
+
+%SortRecordFilter DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0
+
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortHigherKeys DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortHigherKey DEPEND %SortHigherKeys COMPONENT TIMES 0
+
+%SortHigherKeyField DEPEND %SortOrder DEPEND %SortHigherKeys FIELD TIMES 0
+
+%SortHigherKeyValueType DEPEND %SortOrder DEPEND %SortHigherKeys DEFAULT TIMES 0
+
+%SortHigherKeyValueVariable DEPEND %SortOrder DEPEND %SortHigherKeys FIELD TIMES 0
+
+%SortHigherKeyValueFixed DEPEND %SortOrder DEPEND %SortHigherKeys DEFAULT TIMES 0
+
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+
+%SortAdditionalSortType DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortAddSortFields DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortAddSortFieldsAssisted DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortAddSortFieldAssisted DEPEND %SortAddSortFieldsAssisted FIELD TIMES 0
+
+%SortAddSortFieldAssistedOrder DEPEND %SortAddSortFieldsAssisted DEFAULT TIMES 0
+
+%SortResetFields DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortResetField DEPEND %SortResetFields FIELD TIMES 0
+
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortScrollKeyDistribution DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution DEFAULT TIMES 0
+
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+
+%HotFields MULTI LONG  ()
+%HotField DEPEND %HotFields FIELD TIMES 0
+
+%HotFieldBound DEPEND %HotFields LONG TIMES 0
+
+%HotFieldBindOnly DEPEND %HotFields LONG TIMES 0
+
+%UseSameColorForAll LONG  (0)
+%ControlGreenBarColor DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%ControlFieldForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%ControlFieldBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%ControlFieldForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%ControlFieldBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%ConditionalColors DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%ColorCondition DEPEND %ConditionalColors DEFAULT TIMES 0
+
+%ConditionalControlFieldForegroundNormal DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%ConditionalControlFieldBackgroundNormal DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%ConditionalControlFieldForegroundSelected DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%ConditionalControlFieldBackgroundSelected DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%GreenBarOnForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOnBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOnForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOnBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOffForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOffBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOffForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%GreenBarOffBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%AllControlGreenBarColor LONG  (0)
+%AllControlGreenBarColorAlternate LONG  (0)
+%AllControlFieldForegroundNormal LONG  (-1)
+%AllControlFieldBackgroundNormal LONG  (-1)
+%AllControlFieldForegroundSelected LONG  (-1)
+%AllControlFieldBackgroundSelected LONG  (-1)
+%ConditionalColorsAll MULTI LONG  ()
+%ColorConditionAll DEPEND %ConditionalColorsAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldForegroundNormal DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%ConditionalAllControlFieldBackgroundNormal DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%ConditionalAllControlFieldForegroundSelected DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%ConditionalAllControlFieldBackgroundSelected DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%AllGreenBarOnForegroundNormal LONG  (-1)
+%AllGreenBarOnBackgroundNormal LONG  (-1)
+%AllGreenBarOnForegroundSelected LONG  (-1)
+%AllGreenBarOnBackgroundSelected LONG  (-1)
+%AllGreenBarOffForegroundNormal LONG  (-1)
+%AllGreenBarOffBackgroundNormal LONG  (-1)
+%AllGreenBarOffForegroundSelected LONG  (-1)
+%AllGreenBarOffBackgroundSelected LONG  (-1)
+%ControlFieldIcon DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%ControlFieldIconIsNumber DEPEND %Control DEPEND %ControlField LONG TIMES 0
+
+%ConditionalIcons DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%IconCondition DEPEND %ConditionalIcons DEFAULT TIMES 0
+
+%ConditionalControlFieldIcon DEPEND %ConditionalIcons DEFAULT TIMES 0
+
+%ConditionalControlFieldIconIsNumber DEPEND %ConditionalIcons LONG TIMES 0
+
+%UseSameStyleForAll LONG  (0)
+%ControlGreenBarStyle DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%GreenBarOnStyleType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Local List')
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Local List')
+WHEN  ('RULCON:RuleAction') ('Local List')
+
+%GreenBarOnStyleLocalList DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('')
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('')
+WHEN  ('RULCON:RuleAction') ('')
+
+%GreenBarOnStyle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%GreenBarOffStyleType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Local List')
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Local List')
+WHEN  ('RULCON:RuleAction') ('Local List')
+
+%GreenBarOffStyleLocalList DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('')
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('')
+WHEN  ('RULCON:RuleAction') ('')
+
+%GreenBarOffStyle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%ControlFieldStyleType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Local List')
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Local List')
+WHEN  ('RULCON:RuleAction') ('Local List')
+
+%ControlFieldStyleLocalList DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('')
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('')
+WHEN  ('RULCON:RuleAction') ('')
+
+%ControlFieldStyle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%ConditionalStyles DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%StyleCondition DEPEND %ConditionalStyles DEFAULT TIMES 0
+
+%ConditionalControlFieldStyleType DEPEND %ConditionalStyles DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%ConditionalControlFieldStyleLocalList DEPEND %ConditionalStyles DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%ConditionalControlFieldStyle DEPEND %ConditionalStyles DEFAULT TIMES 0
+
+%AllControlGreenBarStyle LONG  (0)
+%AllControlGreenBarStyleAlternate LONG  (0)
+%AllControlFieldStyleType DEFAULT  ('Local List')
+%AllControlFieldStyleLocalList DEFAULT  ('')
+%AllControlFieldStyle DEFAULT  ('')
+%ConditionalStylesAll MULTI LONG  ()
+%StyleConditionAll DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldStyleType DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldStyleLocalList DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldStyle DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%AllGreenBarOnStyleType DEFAULT  ('Local List')
+%AllGreenBarOnStyleLocalList DEFAULT  ('')
+%AllGreenBarOnStyle DEFAULT  ('')
+%AllGreenBarOffStyleType DEFAULT  ('Local List')
+%AllGreenBarOffStyleLocalList DEFAULT  ('')
+%AllGreenBarOffStyle DEFAULT  ('')
+%ControlFieldTipField DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%BrowseAllTotalOnOff LONG  (1)
+%BrowseAllTotalOnOffCondition DEFAULT  ('')
+%BrowseTotals MULTI LONG  ()
+%BrowseTotalTarget DEPEND %BrowseTotals FIELD TIMES 0
+
+%BrowseTotalType DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseTotalField DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseTotalBasedOn DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseTotalCondition DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseBoxDoNotIncludePrimaryKey LONG  (0)
+%DisableUsePopup LONG  (0)
+%EnableSortHeader LONG  (0)
+%ControlFieldSortHeaderSave LONG  (0)
+%ControlFieldSortHeaderOverride DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%ControlFieldSortHeaderDisableColumn DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%ControlFieldSortHeaderFields DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%ControlFieldSortHeaderField DEPEND %ControlFieldSortHeaderFields FIELD TIMES 0
+
+%ControlFieldSortHeaderFieldOrder DEPEND %ControlFieldSortHeaderFields DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%ControlFieldSortHeaderFieldCase DEPEND %ControlFieldSortHeaderFields LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List')TIMES 0
+
+%DisableAutoSizeColumn LONG  (0)
+%DisableListFormatManager LONG  (0)
+%ListFormatManagerAllowPopupInEmptyList DEFAULT  ('Enable')
+%ListFormatManagerCheckType DEFAULT  ('Icon')
+%ListFormatManagerItemsSortBy DEFAULT  ('Alpha')
+%ListFormatManagerUseIdentificationTip DEFAULT  ('Enable')
+%ListFormatManagerSaveWindowPosition DEFAULT  ('Enable')
+%ListFormatManagerSortOrder LONG  (1)
+%ListFormatManagerMenuAppendSortOrder LONG  (1)
+%ListFormatManagerSave LONG  (1)
+%AddPopUp MULTI LONG  ()
+%AddPopUpChoice DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpControl DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpAction DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpProcedure DEPEND %AddPopUp PROCEDURE TIMES 0
+
+%AddPopUpThreadProcedure DEPEND %AddPopUp LONG TIMES 0
+
+%AddPopUpThreadStack DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpText DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpIcon DEPEND %AddPopUp DEFAULT TIMES 0
+
+%TypeAddPopupIcon DEPEND %AddPopUp DEFAULT TIMES 0
+
+%OtherPopupIcon DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpDisable DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpSeparate DEPEND %AddPopUp LONG TIMES 0
+
+%SQLAssignments MULTI LONG  ()
+%SQLViewField DEPEND %SQLAssignments DEFAULT TIMES 0
+
+%SQLViewFieldAssignment DEPEND %SQLAssignments DEFAULT TIMES 0
+
+%SQLHasGroupBy LONG  (0)
+%SQLGrouping DEFAULT  ('')
+%SQLHasHaving LONG  (0)
+%SQLHas DEFAULT  ('')
+%DefaultEnableOnEmpty LONG  (0)
+%SortEnableOnEmpty DEPEND %SortOrder LONG TIMES 0
+
+%ControlFieldSortHeaderMulti LONG  (1)
+%ControlFieldSortHeaderOnlyAsc DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%SortHeaderColumnsUseColor LONG  (0)
+%SortHeaderColorBkHdrAsc LONG  (10526303)
+%SortHeaderColorBkColAsc LONG  (15128749)
+%SortHeaderColorBkHdrDec LONG  (10526303)
+%SortHeaderColorBkColDec LONG  (15128749)
+%UseMRP LONG  (1)
+[INSTANCE]
+INSTANCE 8
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default', 'Locator', 'Locator0', 'Step', 'Step0')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('BrowseClass')
+WHEN  ('Locator0') ('StepLocatorClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('Locator0') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 1
+WHEN  ('Default') ('Q {22}&Queue:Browse:1 {16}!Reference to browse queue', 'Init {19}PROCEDURE(SIGNED ListBox,*STRING Posit,VIEW V,QUEUE Q,RelationManager RM,WindowManager WM)')
+
+%SQLViewFields MULTI DEFAULT  ()
+%TableSchematicsDescription DEFAULT  ('')
+%EnableQuickScan LONG  (0)
+%LoadMethod DEFAULT  ('Page')
+%AcceptToolBarControl LONG  (1)
+%InterLine DEFAULT  ('0')
+%LocatorType DEFAULT  ('Step')
+%OverrideDefaultLocator LONG  (0)
+%OverrideLocator DEFAULT  ('')
+%FindDefaultAnywhere LONG  (0)
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('Default') ('NO')
+WHEN  ('Locator0') ('NO')
+WHEN  ('Step0') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('BRW8')
+WHEN  ('Locator0') ('BRW8::Sort0:Locator')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('Default') (1)
+WHEN  ('Locator0') (1)
+WHEN  ('Step0') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('Default') (1)
+WHEN  ('Locator0') (1)
+WHEN  ('Step0') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('Default') ('ADOBlob')
+WHEN  ('Locator0') ('ADOBlob')
+WHEN  ('Step0') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('Default') (0)
+WHEN  ('Locator0') (0)
+WHEN  ('Step0') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 2
+WHEN  ('Default')TIMES 0
+WHEN  ('Locator0')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 2
+WHEN  ('Default')TIMES 0
+WHEN  ('Locator0')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%RecordFilter DEFAULT  ('RULOVE:SysIdRules = RUL:SysIdRules')
+%RangeField COMPONENT  ()
+%RangeLimitType DEFAULT  ('File Relationship')
+%HigherKeys MULTI LONG  ()
+%HigherKey DEPEND %HigherKeys COMPONENT TIMES 0
+
+%HigherKeyField DEPEND %HigherKeys FIELD TIMES 0
+
+%HigherKeyValueType DEPEND %HigherKeys DEFAULT TIMES 0
+
+%HigherKeyValueVariable DEPEND %HigherKeys FIELD TIMES 0
+
+%HigherKeyValueFixed DEPEND %HigherKeys DEFAULT TIMES 0
+
+%RangeLimit FIELD  ()
+%RangeLow FIELD  ()
+%RangeHigh FIELD  ()
+%RangeFile FILE  (Rules)
+%AdditionalSortType DEFAULT  ('Manual')
+%AddSortFields DEFAULT  ('')
+%AddSortFieldsAssisted MULTI LONG  ()
+%AddSortFieldAssisted DEPEND %AddSortFieldsAssisted FIELD TIMES 0
+
+%AddSortFieldAssistedOrder DEPEND %AddSortFieldsAssisted DEFAULT TIMES 0
+
+%ResetFields MULTI LONG  ()
+%ResetField DEPEND %ResetFields FIELD TIMES 0
+
+%ScrollBehavior DEFAULT  ('Fixed Thumb')
+%ScrollKeyDistribution DEFAULT  ('Alpha')
+%CustomKeyDistribution MULTI LONG  ()
+%KeyDistributionValue DEPEND %CustomKeyDistribution DEFAULT TIMES 0
+
+%ScrollAlpha LONG  (1)
+%ScrollNumeric LONG  (0)
+%ScrollAlt LONG  (0)
+%SortOrder MULTI LONG  ()
+%SortCondition DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortKey DEPEND %SortOrder KEY TIMES 0
+
+%SortLocatorType DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortOverrideDefaultLocator DEPEND %SortOrder LONG TIMES 0
+
+%SortOverrideLocator DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortFindAnywhere DEPEND %SortOrder LONG TIMES 0
+
+%SortRecordFilter DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortRangeField DEPEND %SortOrder COMPONENT TIMES 0
+
+%SortRangeLimitType DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortHigherKeys DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortHigherKey DEPEND %SortHigherKeys COMPONENT TIMES 0
+
+%SortHigherKeyField DEPEND %SortOrder DEPEND %SortHigherKeys FIELD TIMES 0
+
+%SortHigherKeyValueType DEPEND %SortOrder DEPEND %SortHigherKeys DEFAULT TIMES 0
+
+%SortHigherKeyValueVariable DEPEND %SortOrder DEPEND %SortHigherKeys FIELD TIMES 0
+
+%SortHigherKeyValueFixed DEPEND %SortOrder DEPEND %SortHigherKeys DEFAULT TIMES 0
+
+%SortRangeLimit DEPEND %SortOrder FIELD TIMES 0
+
+%SortRangeLow DEPEND %SortOrder FIELD TIMES 0
+
+%SortRangeHigh DEPEND %SortOrder FIELD TIMES 0
+
+%SortRangeFile DEPEND %SortOrder FILE TIMES 0
+
+%SortAdditionalSortType DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortAddSortFields DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortAddSortFieldsAssisted DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortAddSortFieldAssisted DEPEND %SortAddSortFieldsAssisted FIELD TIMES 0
+
+%SortAddSortFieldAssistedOrder DEPEND %SortAddSortFieldsAssisted DEFAULT TIMES 0
+
+%SortResetFields DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortResetField DEPEND %SortResetFields FIELD TIMES 0
+
+%SortScrollBehavior DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortScrollKeyDistribution DEPEND %SortOrder DEFAULT TIMES 0
+
+%SortCustomKeyDistribution DEPEND %SortOrder MULTI LONG TIMES 0
+
+%SortKeyDistributionValue DEPEND %SortCustomKeyDistribution DEFAULT TIMES 0
+
+%SortScrollAlpha DEPEND %SortOrder LONG TIMES 0
+
+%SortScrollNumeric DEPEND %SortOrder LONG TIMES 0
+
+%SortScrollAlt DEPEND %SortOrder LONG TIMES 0
+
+%HotFields MULTI LONG  ()
+%HotField DEPEND %HotFields FIELD TIMES 0
+
+%HotFieldBound DEPEND %HotFields LONG TIMES 0
+
+%HotFieldBindOnly DEPEND %HotFields LONG TIMES 0
+
+%UseSameColorForAll LONG  (0)
+%ControlGreenBarColor DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%ControlFieldForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%ControlFieldBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%ControlFieldForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%ControlFieldBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%ConditionalColors DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%ColorCondition DEPEND %ConditionalColors DEFAULT TIMES 0
+
+%ConditionalControlFieldForegroundNormal DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ConditionalControlFieldBackgroundNormal DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ConditionalControlFieldForegroundSelected DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ConditionalControlFieldBackgroundSelected DEPEND %ConditionalColors LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%GreenBarOnForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOnBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOnForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOnBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOffForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOffBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOffForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%GreenBarOffBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%AllControlGreenBarColor LONG  (0)
+%AllControlGreenBarColorAlternate LONG  (0)
+%AllControlFieldForegroundNormal LONG  (-1)
+%AllControlFieldBackgroundNormal LONG  (-1)
+%AllControlFieldForegroundSelected LONG  (-1)
+%AllControlFieldBackgroundSelected LONG  (-1)
+%ConditionalColorsAll MULTI LONG  ()
+%ColorConditionAll DEPEND %ConditionalColorsAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldForegroundNormal DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%ConditionalAllControlFieldBackgroundNormal DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%ConditionalAllControlFieldForegroundSelected DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%ConditionalAllControlFieldBackgroundSelected DEPEND %ConditionalColorsAll LONG TIMES 0
+
+%AllGreenBarOnForegroundNormal LONG  (-1)
+%AllGreenBarOnBackgroundNormal LONG  (-1)
+%AllGreenBarOnForegroundSelected LONG  (-1)
+%AllGreenBarOnBackgroundSelected LONG  (-1)
+%AllGreenBarOffForegroundNormal LONG  (-1)
+%AllGreenBarOffBackgroundNormal LONG  (-1)
+%AllGreenBarOffForegroundSelected LONG  (-1)
+%AllGreenBarOffBackgroundSelected LONG  (-1)
+%ControlFieldIcon DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%ControlFieldIconIsNumber DEPEND %Control DEPEND %ControlField LONG TIMES 0
+
+%ConditionalIcons DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%IconCondition DEPEND %ConditionalIcons DEFAULT TIMES 0
+
+%ConditionalControlFieldIcon DEPEND %ConditionalIcons DEFAULT TIMES 0
+
+%ConditionalControlFieldIconIsNumber DEPEND %ConditionalIcons LONG TIMES 0
+
+%UseSameStyleForAll LONG  (0)
+%ControlGreenBarStyle DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%GreenBarOnStyleType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Local List')
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Local List')
+
+%GreenBarOnStyleLocalList DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('')
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('')
+
+%GreenBarOnStyle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%GreenBarOffStyleType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Local List')
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Local List')
+
+%GreenBarOffStyleLocalList DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('')
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('')
+
+%GreenBarOffStyle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%ControlFieldStyleType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Local List')
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Local List')
+
+%ControlFieldStyleLocalList DEPEND %Control DEPEND %ControlField DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('')
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('')
+
+%ControlFieldStyle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%ConditionalStyles DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%StyleCondition DEPEND %ConditionalStyles DEFAULT TIMES 0
+
+%ConditionalControlFieldStyleType DEPEND %ConditionalStyles DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ConditionalControlFieldStyleLocalList DEPEND %ConditionalStyles DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ConditionalControlFieldStyle DEPEND %ConditionalStyles DEFAULT TIMES 0
+
+%AllControlGreenBarStyle LONG  (0)
+%AllControlGreenBarStyleAlternate LONG  (0)
+%AllControlFieldStyleType DEFAULT  ('Local List')
+%AllControlFieldStyleLocalList DEFAULT  ('')
+%AllControlFieldStyle DEFAULT  ('')
+%ConditionalStylesAll MULTI LONG  ()
+%StyleConditionAll DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldStyleType DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldStyleLocalList DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%ConditionalAllControlFieldStyle DEPEND %ConditionalStylesAll DEFAULT TIMES 0
+
+%AllGreenBarOnStyleType DEFAULT  ('Local List')
+%AllGreenBarOnStyleLocalList DEFAULT  ('')
+%AllGreenBarOnStyle DEFAULT  ('')
+%AllGreenBarOffStyleType DEFAULT  ('Local List')
+%AllGreenBarOffStyleLocalList DEFAULT  ('')
+%AllGreenBarOffStyle DEFAULT  ('')
+%ControlFieldTipField DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%BrowseAllTotalOnOff LONG  (1)
+%BrowseAllTotalOnOffCondition DEFAULT  ('')
+%BrowseTotals MULTI LONG  ()
+%BrowseTotalTarget DEPEND %BrowseTotals FIELD TIMES 0
+
+%BrowseTotalType DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseTotalField DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseTotalBasedOn DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseTotalCondition DEPEND %BrowseTotals DEFAULT TIMES 0
+
+%BrowseBoxDoNotIncludePrimaryKey LONG  (0)
+%DisableUsePopup LONG  (0)
+%EnableSortHeader LONG  (0)
+%ControlFieldSortHeaderSave LONG  (0)
+%ControlFieldSortHeaderOverride DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%ControlFieldSortHeaderDisableColumn DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%ControlFieldSortHeaderFields DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%ControlFieldSortHeaderField DEPEND %ControlFieldSortHeaderFields FIELD TIMES 0
+
+%ControlFieldSortHeaderFieldOrder DEPEND %ControlFieldSortHeaderFields DEFAULT TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%ControlFieldSortHeaderFieldCase DEPEND %ControlFieldSortHeaderFields LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?List:2')TIMES 0
+
+%DisableAutoSizeColumn LONG  (0)
+%DisableListFormatManager LONG  (0)
+%ListFormatManagerAllowPopupInEmptyList DEFAULT  ('Enable')
+%ListFormatManagerCheckType DEFAULT  ('Icon')
+%ListFormatManagerItemsSortBy DEFAULT  ('Alpha')
+%ListFormatManagerUseIdentificationTip DEFAULT  ('Enable')
+%ListFormatManagerSaveWindowPosition DEFAULT  ('Enable')
+%ListFormatManagerSortOrder LONG  (1)
+%ListFormatManagerMenuAppendSortOrder LONG  (1)
+%ListFormatManagerSave LONG  (1)
+%AddPopUp MULTI LONG  ()
+%AddPopUpChoice DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpControl DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpAction DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpProcedure DEPEND %AddPopUp PROCEDURE TIMES 0
+
+%AddPopUpThreadProcedure DEPEND %AddPopUp LONG TIMES 0
+
+%AddPopUpThreadStack DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpText DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpIcon DEPEND %AddPopUp DEFAULT TIMES 0
+
+%TypeAddPopupIcon DEPEND %AddPopUp DEFAULT TIMES 0
+
+%OtherPopupIcon DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpDisable DEPEND %AddPopUp DEFAULT TIMES 0
+
+%AddPopUpSeparate DEPEND %AddPopUp LONG TIMES 0
+
+%SQLAssignments MULTI LONG  ()
+%SQLViewField DEPEND %SQLAssignments DEFAULT TIMES 0
+
+%SQLViewFieldAssignment DEPEND %SQLAssignments DEFAULT TIMES 0
+
+%SQLHasGroupBy LONG  (0)
+%SQLGrouping DEFAULT  ('')
+%SQLHasHaving LONG  (0)
+%SQLHas DEFAULT  ('')
+%DefaultEnableOnEmpty LONG  (0)
+%SortEnableOnEmpty DEPEND %SortOrder LONG TIMES 0
+
+%ControlFieldSortHeaderMulti LONG  (1)
+%ControlFieldSortHeaderOnlyAsc DEPEND %Control DEPEND %ControlField LONG TIMES 2
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%SortHeaderColumnsUseColor LONG  (0)
+%SortHeaderColorBkHdrAsc LONG  (10526303)
+%SortHeaderColorBkColAsc LONG  (15128749)
+%SortHeaderColorBkHdrDec LONG  (10526303)
+%SortHeaderColorBkColDec LONG  (15128749)
+%UseMRP LONG  (1)
+[ADDITION]
+NAME ABC BrowseUpdateButtons
+[INSTANCE]
+INSTANCE 11
+PARENT 10
+[PROMPTS]
+%EditInPlace LONG  (0)
+%ClassItem UNIQUE DEFAULT  ('BrowseEIPManager', 'EIP_RULCON:ControlName', 'EIP_RULCON:RuleAction')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('BrowseEIPManager') ('BrowseEIPManager')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('BrowseEIPManager') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('BrowseEIPManager') ('NO')
+WHEN  ('EIP_RULCON:ControlName') ('NO')
+WHEN  ('EIP_RULCON:RuleAction') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('BrowseEIPManager') ('BRW10::EIPManager')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('BrowseEIPManager') (1)
+WHEN  ('EIP_RULCON:ControlName') (1)
+WHEN  ('EIP_RULCON:RuleAction') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('BrowseEIPManager') (1)
+WHEN  ('EIP_RULCON:ControlName') (1)
+WHEN  ('EIP_RULCON:RuleAction') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('BrowseEIPManager') ('ADOBlob')
+WHEN  ('EIP_RULCON:ControlName') ('')
+WHEN  ('EIP_RULCON:RuleAction') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('BrowseEIPManager') (0)
+WHEN  ('EIP_RULCON:ControlName') (0)
+WHEN  ('EIP_RULCON:RuleAction') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('EIP_RULCON:RuleAction')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('EIP_RULCON:RuleAction')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%EIPTabAction DEFAULT  ('Default')
+%EIPTabRemain LONG  (0)
+%EIPEnterAction DEFAULT  ('Default')
+%EIPEnterRemain LONG  (0)
+%EIPArrowAction DEFAULT  ('Default')
+%EIPArrowRemain LONG  (1)
+%EIPArrowRetain LONG  (1)
+%EIPFocusAction DEFAULT  ('Default')
+%EIPInsertionPoint DEFAULT  ('After')
+%EIPAskOnDelete DEFAULT  ('Always')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields DEFAULT TIMES 0
+
+%AllowEIPExt DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (1)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (1)
+WHEN  ('RULCON:RuleAction') (1)
+
+%EditInPlaceTypeExt DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Entry')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Entry')
+WHEN  ('RULCON:RuleAction') ('Entry')
+
+%EditInPlaceFEQTitle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQJust DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Default')
+WHEN  ('RULCON:RuleAction') ('Default')
+
+%EditInPlaceFEQOffset DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('0')
+WHEN  ('RULCON:RuleAction') ('0')
+
+%EditInPlaceFEQTransparent DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQReadOnly DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQRequired DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQDataSource DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Fixed')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Fixed')
+WHEN  ('RULCON:RuleAction') ('Fixed')
+
+%EditInPlaceFEQFixedDataSource DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%EditInPlaceFEQFixedDataSourceValue DEPEND %EditInPlaceFEQFixedDataSource DEFAULT TIMES 0
+
+%EditInPlaceFEQFixedDataSourceSelected DEPEND %EditInPlaceFEQFixedDataSource LONG TIMES 4
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?Insert')TIMES 0
+
+%EditInPlaceFEQQueueDataSourceQN DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%EditInPlaceFEQQueueDataSourceV DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%EditInPlaceFEQQueueDataSourceS DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%ReturnToOriginalDir DEPEND %Control DEPEND %ControlField LONG TIMES 0
+
+%AllowLongFilenames DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (1)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (1)
+WHEN  ('RULCON:RuleAction') (1)
+
+%DOSFileDialogType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Open')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Open')
+WHEN  ('RULCON:RuleAction') ('Open')
+
+%AllowNoError DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%AllowMultiSelect DEPEND %Control DEPEND %ControlField LONG TIMES 0
+
+%DOSMaskDesc DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('All Files')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('All Files')
+WHEN  ('RULCON:RuleAction') ('All Files')
+
+%DOSMask DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('*.*')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('*.*')
+WHEN  ('RULCON:RuleAction') ('*.*')
+
+%DOSMoreMasks DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%EditInPlaceFEQForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%EditInPlaceFEQBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%EditInPlaceFEQForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%EditInPlaceFEQBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (-1)
+WHEN  ('RULCON:RuleAction') (-1)
+
+%EditInPlaceFEQFrom DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQListFormat DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQPicture DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQDrop DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('0')
+WHEN  ('RULCON:RuleAction') ('0')
+
+%EditInPlaceFEQWidth DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('0')
+WHEN  ('RULCON:RuleAction') ('0')
+
+%EditInPlaceFEQFlat DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQHorizontal DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQVertical DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQFixedDataSourceText DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQCheckJust DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Default')
+WHEN  ('RULCON:RuleAction') ('Default')
+
+%EditInPlaceFEQTrue DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQFalse DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQCase DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Default')
+WHEN  ('RULCON:RuleAction') ('Default')
+
+%EditInPlaceFEQEntryMode DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Default')
+WHEN  ('RULCON:RuleAction') ('Default')
+
+%EditInPlaceFEQLower DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('0')
+WHEN  ('RULCON:RuleAction') ('0')
+
+%EditInPlaceFEQUpper DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('0')
+WHEN  ('RULCON:RuleAction') ('0')
+
+%EditInPlaceFEQStep DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('0')
+WHEN  ('RULCON:RuleAction') ('0')
+
+%EditInPlaceFEQPassword DEPEND %Control DEPEND %ControlField LONG TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%LookupType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 5
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Delete')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Related Field')
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') ('Related Field')
+WHEN  ('RULCON:RuleAction') ('Related Field')
+
+%PostLookupKey DEPEND %Control DEPEND %ControlField KEY TIMES 0
+
+%PostLookupField DEPEND %Control DEPEND %ControlField COMPONENT TIMES 0
+
+%PostLookupFieldNoRelated DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%PostLookupProcedure DEPEND %Control DEPEND %ControlField PROCEDURE TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%PostLookupProcedureReturnValue DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%LookupAssign DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%EIPThisObjectName DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceList MULTI LONG  ()
+%EditInPlaceField DEPEND %EditInPlaceList FIELD TIMES 0
+
+%AllowEIP DEPEND %EditInPlaceList LONG TIMES 0
+
+%UpdateProcedure PROCEDURE  (UpdateControls)
+%UpdateProcedureParameters DEFAULT  ('RUL:SysIdRules')
+%EditViaPopup LONG  (1)
+%ConditionalEditInPlace LONG  (0)
+%ConditionalEditInPlaceCondition DEFAULT  ('')
+%EditInPlaceFEQAutoSerializeField DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQAutoSerializeFieldDelimiter DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQColumnFrom DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQImmediate DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQEntryCompletion DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Change')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert')TIMES 0
+WHEN  ('?List')TIMES 2
+WHEN  ('RULCON:ControlName') (0)
+WHEN  ('RULCON:RuleAction') (0)
+
+%EditInPlaceFEQTrueLabel DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQFalseLabel DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 12
+PARENT 8
+[PROMPTS]
+%EditInPlace LONG  (0)
+%ClassItem UNIQUE DEFAULT  ('BrowseEIPManager', 'EIP_RULOVE:ProcedureName', 'EIP_RULOVE:SysIdRuleProcOverride')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('BrowseEIPManager') ('BrowseEIPManager')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('BrowseEIPManager') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('BrowseEIPManager') ('NO')
+WHEN  ('EIP_RULOVE:ProcedureName') ('NO')
+WHEN  ('EIP_RULOVE:SysIdRuleProcOverride') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('BrowseEIPManager') ('BRW8::EIPManager')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('BrowseEIPManager') (1)
+WHEN  ('EIP_RULOVE:ProcedureName') (1)
+WHEN  ('EIP_RULOVE:SysIdRuleProcOverride') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('BrowseEIPManager') (1)
+WHEN  ('EIP_RULOVE:ProcedureName') (1)
+WHEN  ('EIP_RULOVE:SysIdRuleProcOverride') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 3
+WHEN  ('BrowseEIPManager') ('ADOBlob')
+WHEN  ('EIP_RULOVE:ProcedureName') ('')
+WHEN  ('EIP_RULOVE:SysIdRuleProcOverride') ('ADOBlob')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 3
+WHEN  ('BrowseEIPManager') (0)
+WHEN  ('EIP_RULOVE:ProcedureName') (0)
+WHEN  ('EIP_RULOVE:SysIdRuleProcOverride') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('EIP_RULOVE:ProcedureName')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('EIP_RULOVE:ProcedureName')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%EIPTabAction DEFAULT  ('Default')
+%EIPTabRemain LONG  (0)
+%EIPEnterAction DEFAULT  ('Default')
+%EIPEnterRemain LONG  (0)
+%EIPArrowAction DEFAULT  ('Default')
+%EIPArrowRemain LONG  (1)
+%EIPArrowRetain LONG  (1)
+%EIPFocusAction DEFAULT  ('Default')
+%EIPInsertionPoint DEFAULT  ('After')
+%EIPAskOnDelete DEFAULT  ('Always')
+%PrimingFields MULTI LONG  ()
+%PrimedField DEPEND %PrimingFields FIELD TIMES 0
+
+%PrimedValue DEPEND %PrimingFields DEFAULT TIMES 0
+
+%AllowEIPExt DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (1)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (1)
+
+%EditInPlaceTypeExt DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Entry')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Entry')
+
+%EditInPlaceFEQTitle DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQJust DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Default')
+
+%EditInPlaceFEQOffset DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('0')
+
+%EditInPlaceFEQTransparent DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQReadOnly DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQRequired DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQDataSource DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Fixed')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Fixed')
+
+%EditInPlaceFEQFixedDataSource DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%EditInPlaceFEQFixedDataSourceValue DEPEND %EditInPlaceFEQFixedDataSource DEFAULT TIMES 0
+
+%EditInPlaceFEQFixedDataSourceSelected DEPEND %EditInPlaceFEQFixedDataSource LONG TIMES 3
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('')TIMES 0
+WHEN  ('?Insert:2')TIMES 0
+
+%EditInPlaceFEQQueueDataSourceQN DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%EditInPlaceFEQQueueDataSourceV DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%EditInPlaceFEQQueueDataSourceS DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%ReturnToOriginalDir DEPEND %Control DEPEND %ControlField LONG TIMES 0
+
+%AllowLongFilenames DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (1)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (1)
+
+%DOSFileDialogType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Open')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Open')
+
+%AllowNoError DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%AllowMultiSelect DEPEND %Control DEPEND %ControlField LONG TIMES 0
+
+%DOSMaskDesc DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('All Files')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('All Files')
+
+%DOSMask DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('*.*')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('*.*')
+
+%DOSMoreMasks DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%EditInPlaceFEQForegroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%EditInPlaceFEQBackgroundNormal DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%EditInPlaceFEQForegroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%EditInPlaceFEQBackgroundSelected DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (-1)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (-1)
+
+%EditInPlaceFEQFrom DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQListFormat DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQPicture DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQDrop DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('0')
+
+%EditInPlaceFEQWidth DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('0')
+
+%EditInPlaceFEQFlat DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQHorizontal DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQVertical DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQFixedDataSourceText DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQCheckJust DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Default')
+
+%EditInPlaceFEQTrue DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQFalse DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQCase DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Default')
+
+%EditInPlaceFEQEntryMode DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Default')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Default')
+
+%EditInPlaceFEQLower DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('0')
+
+%EditInPlaceFEQUpper DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('0')
+
+%EditInPlaceFEQStep DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('0')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('0')
+
+%EditInPlaceFEQPassword DEPEND %Control DEPEND %ControlField LONG TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%LookupType DEPEND %Control DEPEND %ControlField DEFAULT TIMES 4
+WHEN  ('?Delete:2')TIMES 0
+WHEN  ('?Help')TIMES 1
+WHEN  ('') ('Related Field')
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') ('Related Field')
+
+%PostLookupKey DEPEND %Control DEPEND %ControlField KEY TIMES 0
+
+%PostLookupField DEPEND %Control DEPEND %ControlField COMPONENT TIMES 0
+
+%PostLookupFieldNoRelated DEPEND %Control DEPEND %ControlField FIELD TIMES 0
+
+%PostLookupProcedure DEPEND %Control DEPEND %ControlField PROCEDURE TIMES 0
+
+%PostLookupProcedureParameters DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%PostLookupProcedureReturnValue DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%LookupAssign DEPEND %Control DEPEND %ControlField MULTI LONG TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%EIPThisObjectName DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceList MULTI LONG  ()
+%EditInPlaceField DEPEND %EditInPlaceList FIELD TIMES 0
+
+%AllowEIP DEPEND %EditInPlaceList LONG TIMES 0
+
+%UpdateProcedure PROCEDURE  (UpdateProcedure)
+%UpdateProcedureParameters DEFAULT  ('RUL:SysIdRules')
+%EditViaPopup LONG  (1)
+%ConditionalEditInPlace LONG  (0)
+%ConditionalEditInPlaceCondition DEFAULT  ('')
+%EditInPlaceFEQAutoSerializeField DEPEND %Control DEPEND %ControlField LONG TIMES 3
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQAutoSerializeFieldDelimiter DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQColumnFrom DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQImmediate DEPEND %Control DEPEND %ControlField LONG TIMES 3
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQEntryCompletion DEPEND %Control DEPEND %ControlField LONG TIMES 3
+WHEN  ('?Help')TIMES 1
+WHEN  ('') (0)
+WHEN  ('?Insert:2')TIMES 0
+WHEN  ('?List:2')TIMES 1
+WHEN  ('RULOVE:ProcedureName') (0)
+
+%EditInPlaceFEQTrueLabel DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+%EditInPlaceFEQFalseLabel DEPEND %Control DEPEND %ControlField DEFAULT TIMES 0
+
+[WINDOW]
+QuickWindow WINDOW('Form Rules'),AT(,,383,194),FONT('MS Sans Serif',8,,FONT:regular),RESIZE, |
+          CENTER,GRAY,IMM,MDI,HLP('Update_rules'),SYSTEM
+          SHEET,AT(4,4,377,170),USE(?CurrentTab),#ORIG(CurrentTab),#ORDINAL(1)
+            TAB('General'),USE(?Tab:1),#ORDINAL(2)
+              PROMPT('Rule Name:'),AT(7,39),USE(?RUL:Name:Prompt),TRN,#LINK(?RUL:RuleName), |
+                #ORIG(?RUL:Name:Prompt),#ORDINAL(3)
+              ENTRY(@s20),AT(73,39,84,10),USE(RUL:RuleName),#LINK(?RUL:Name:Prompt),#ORIG(RUL:Name), |
+                #ORDINAL(4)
+              PROMPT('Rule Description:'),AT(7,53),USE(?RUL:Description:Prompt),TRN,#LINK(?RUL:RuleDescription), |
+                #ORIG(?RUL:Description:Prompt),#ORDINAL(5)
+              ENTRY(@s255),AT(73,53,289,10),USE(RUL:RuleDescription),#LINK(?RUL:Description:Prompt), |
+                #ORIG(RUL:Description),#ORDINAL(6)
+              PROMPT('Expression:'),AT(7,68),USE(?RUL:Expression:Prompt),TRN,#LINK(?RUL:RuleExpression), |
+                #ORIG(?RUL:Expression:Prompt),#ORDINAL(7)
+              TEXT,AT(73,68,289,30),USE(RUL:RuleExpression),#LINK(?RUL:Expression:Prompt), |
+                #ORIG(RUL:Expression),#ORDINAL(8)
+              PROMPT('Field Name:'),AT(7,105),USE(?RUL:Control:Prompt),TRN,#LINK(?RUL:ControlName), |
+                #ORIG(?RUL:Control:Prompt),#ORDINAL(9)
+              ENTRY(@s255),AT(73,105,151,10),USE(RUL:ControlName),UPR,#LINK(?RUL:Control:Prompt), |
+                #ORIG(RUL:Control),#ORDINAL(10)
+              PROMPT('Offset:'),AT(7,121),USE(?RUL:Offset:Prompt),TRN,#LINK(?RUL:Offset),#ORIG(?RUL:Offset:Prompt), |
+                #ORDINAL(11)
+              ENTRY(@n-14),AT(73,121,64,10),USE(RUL:Offset),RIGHT(1),#LINK(?RUL:Offset:Prompt), |
+                #ORIG(RUL:Offset),#ORDINAL(12)
+              PROMPT('(The Name of the Field where the Broken Rule Icon is displayed)'),AT(249, |
+                104,116,26),USE(?PROMPT1),CENTER,#ORDINAL(13)
+              PROMPT('(The above Rule will be added to each Procedure where the field i' & |
+                's populated as a Control)'),AT(5,160,353),USE(?PROMPT2),CENTER,#ORDINAL(14)
+              CHECK(' Thick if this Rule is Active?'),AT(72,141),USE(RUL:RuleActive),VALUE('1', |
+                '0'),#ORDINAL(15)
+              PROMPT('Rules Group Name:'),AT(7,23),USE(?RULGRO:RulesGroupName:Prompt),#ORDINAL(10000)
+              ENTRY(@s50),AT(73,24,205,10),USE(RULGRO:RulesGroupName),DISABLE,#ORDINAL(10001)
+            END
+            TAB('Controls'),USE(?Tab2),#ORIG(?Tab2),#ORDINAL(16)
+              LIST,AT(15,27,182,52),USE(?List),FORMAT('80L(2)|M~Control~@s20@80L(2)|M~R' & |
+                'ule Action~@s20@'),FROM(Queue:Browse),IMM,MSG('Browsing Records'),#FIELDS(RULCON:ControlName, |
+                RULCON:RuleAction),#ORIG(?List),#SEQ(10),#ORDINAL(17)
+              BUTTON('&Insert'),AT(73,83,42,12),USE(?Insert),#ORIG(?Insert),#SEQ(11),#ORDINAL(18)
+              BUTTON('&Change'),AT(115,83,42,12),USE(?Change),#ORIG(?Change),#SEQ(11),#ORDINAL(19)
+              BUTTON('&Delete'),AT(157,83,42,12),USE(?Delete),#ORIG(?Delete),#SEQ(11),#ORDINAL(20)
+            END
+            TAB('Excluded Procedures'),USE(?Tab3),#ORIG(?Tab3),#ORDINAL(21)
+              LIST,AT(19,27,234,59),USE(?List:2),FORMAT('200L(2)|M~Procedure Name~@s50@'), |
+                FROM(Queue:Browse:1),IMM,MSG('Browsing Records'),#FIELDS(RULOVE:ProcedureName), |
+                #ORIG(?List),#SEQ(8),#ORDINAL(22)
+              BUTTON('&Insert'),AT(125,90,42,12),USE(?Insert:2),#ORIG(?Insert),#SEQ(12),#ORDINAL(23)
+              BUTTON('&Change'),AT(167,90,42,12),USE(?Change:2),#ORIG(?Change),#SEQ(12),#ORDINAL(24)
+              BUTTON('&Delete'),AT(209,90,42,12),USE(?Delete:2),#ORIG(?Delete),#SEQ(12),#ORDINAL(25)
+            END
+          END
+          BUTTON('&OK'),AT(140,178,49,14),USE(?OK),LEFT,ICON('WAOK.ICO'),DEFAULT,FLAT,MSG('Accept dat' & |
+            'a and close the window'),TIP('Accept data and close the window'),#ORIG(?OK),#SEQ(2), |
+            #ORDINAL(26)
+          BUTTON('&Cancel'),AT(193,178,49,14),USE(?Cancel),LEFT,ICON('WACANCEL.ICO'),FLAT, |
+            MSG('Cancel operation'),TIP('Cancel operation'),#ORIG(?Cancel),#SEQ(3),#ORDINAL(27)
+          BUTTON('&Help'),AT(245,178,49,14),USE(?Help),LEFT,ICON('WAHELP.ICO'),DISABLE,FLAT, |
+            HIDE,MSG('See Help Window'),STD(STD:Help),TIP('See Help Window'),#ORIG(?Help), |
+            #SEQ(4),#ORDINAL(28)
+        END
+
+[END]

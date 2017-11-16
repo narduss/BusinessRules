@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "RuleRunTime", "RuleRunTime.cwproj", "{AA5A3A7E-958E-4B42-AD25-3E11A0C4A5FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
+	ProjectSection(SolutionItems) = postProject
+		RuleRunTime.app = RuleRunTime.app
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{DC9821C3-2630-4D6A-9DF5-3FCD4442FB3F}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\..\..\Clarion10\accessory\template\win\qsExternalRules.tpl = ..\..\..\..\..\Clarion10\accessory\template\win\qsExternalRules.tpl
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{F1172457-24F0-45AF-8DC8-3A622CB9A1AD}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.clw = ..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.clw
+		..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.inc = ..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.inc
+		..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.clw = ..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.clw
+		..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.inc = ..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.inc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dictionary", "Dictionary", "{3A479E25-45B5-4A91-9C8B-436BB46670C3}"
+	ProjectSection(SolutionItems) = postProject
+		PEOPLE2.dct = PEOPLE2.dct
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA5A3A7E-958E-4B42-AD25-3E11A0C4A5FE}.Debug|Win32.Build.0 = Debug|Win32
+		{AA5A3A7E-958E-4B42-AD25-3E11A0C4A5FE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AA5A3A7E-958E-4B42-AD25-3E11A0C4A5FE}.Release|Win32.Build.0 = Release|Win32
+		{AA5A3A7E-958E-4B42-AD25-3E11A0C4A5FE}.Release|Win32.ActiveCfg = Release|Win32
+		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Debug|Win32.Build.0 = Debug|Win32
+		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Release|Win32.Build.0 = Release|Win32
+		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal
