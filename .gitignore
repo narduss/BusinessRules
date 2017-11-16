@@ -23,4 +23,10 @@ log/
 !*.pr
 !*.ver
 !*.sql
+!*.mht
+!*.pptx
+!Accessory/Template/Win/*.tpl
+!Accessory/Libscr/Win/*.inc
+!Accessory/Libscr/Win/*.clw
+
 !CA_Roots.pem

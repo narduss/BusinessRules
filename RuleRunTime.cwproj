@@ -6,7 +6,7 @@
     <OutputType>Exe</OutputType>
     <AssemblyName>RuleRunTime</AssemblyName>
     <OutputName>ruleruntime</OutputName>
-    <DefineConstants>_XmlLibDllMode_=&gt;0%3b_XmlLibLinkMode_=&gt;1%3b_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
     <Model>Dll</Model>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -24,6 +24,21 @@
     <check_index>False</check_index>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="About_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="BrowsePeople_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="BrowseRuleGroups_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="BrowseRules_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="Main_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
     <Compile Include="RuleRunTime.clw">
       <Generated>true</Generated>
     </Compile>
@@ -31,6 +46,24 @@
       <Generated>true</Generated>
     </Compile>
     <Compile Include="RuleRunTime_BC0.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="UpdateControls_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="UpdatePeople_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="UpdateProcedure_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="UpdateProcUserOverride_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="UpdateRulesGroup_RuleRunTime.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="UpdateRules_RuleRunTime.clw">
       <Generated>true</Generated>
     </Compile>
   </ItemGroup>
@@ -42,6 +75,7 @@
     <Library Include="BRuleOk.ico" />
     <Library Include="BRules.ico" />
     <Library Include="MARK.ICO" />
+    <Library Include="SVwall.jpg" />
   </ItemGroup>
   <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
 </Project>

@@ -6,7 +6,7 @@
     <OutputType>Exe</OutputType>
     <AssemblyName>RuleDemoC10</AssemblyName>
     <OutputName>RuleDemo</OutputName>
-    <DefineConstants>_XmlLibDllMode_=&gt;0%3b_XmlLibLinkMode_=&gt;1%3b_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
     <Model>Dll</Model>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -25,16 +25,13 @@
   </PropertyGroup>
   <ItemGroup>
     <FileDriver Include="TOPSPEED" />
+    <Compile Include="About_RuleDemoC10.clw">
+      <Generated>true</Generated>
+    </Compile>
     <Compile Include="RuleDemoC10.clw">
       <Generated>true</Generated>
     </Compile>
     <Compile Include="RuleDemoC10001.clw">
-      <Generated>true</Generated>
-    </Compile>
-    <Compile Include="RuleDemoC10002.clw">
-      <Generated>true</Generated>
-    </Compile>
-    <Compile Include="RuleDemoC10003.clw">
       <Generated>true</Generated>
     </Compile>
     <Compile Include="RULEDEMOC10_BC.CLW">
@@ -43,10 +40,14 @@
     <Compile Include="RuleDemoC10_BC0.CLW">
       <Generated>true</Generated>
     </Compile>
+    <Compile Include="Updatepeople_RuleDemoC10.clw">
+      <Generated>true</Generated>
+    </Compile>
     <Library Include="BRuleNo.ico" />
     <Library Include="BRuleOk.ico" />
     <Library Include="BRules.ico" />
     <Library Include="RuleDemo.EXE.manifest" />
+    <Library Include="RuleDemoC10.EXE.manifest" />
     <Library Include="SVwall.jpg" />
   </ItemGroup>
   <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />

@@ -1,0 +1,926 @@
+[APPLICATION]
+VERSION 34
+TODO ABC ToDo
+DICTIONARY 'PEOPLE2.dct'
+PROCEDURE Main
+[COMMON]
+FROM ABC
+[PROMPTS]
+%ProgramAuthor DEFAULT  ('')
+%MessageDescription LONG  (1)
+%GlobalExternal LONG  (0)
+%ExternalSource DEFAULT  ('Dynamic Link Library (DLL)')
+%GenerateEmbedComments LONG  (0)
+%INIActive LONG  (0)
+%INIFile DEFAULT  ('Program Name.INI')
+%ININame DEFAULT  ('')
+%EnableRunTimeTranslator LONG  (1)
+%DefaultGenerate LONG  (0)
+%DefaultCloseFile DEFAULT  ('Close the File')
+%DefaultRILogout LONG  (1)
+%GlobalUseDefaultFileManager LONG  (1)
+%GlobalFileManagerClass DEFAULT  ('')
+%GlobalUseDefaultRelationManager LONG  (1)
+%GlobalRelationManagerClass DEFAULT  ('')
+%LockRecoverTime DEFAULT  ('10')
+%DefaultThreaded DEFAULT  ('Use File Setting')
+%DefaultCreate DEFAULT  ('Use File Setting')
+%DefaultExternal DEFAULT  ('None External')
+%DefaultExternalSource DEFAULT  ('')
+%DefaultExternalAPP LONG  (0)
+%DefaultExport LONG  (0)
+%DefaultOpenMode DEFAULT  ('Share')
+%DefaultUserAccess DEFAULT  ('Read/Write')
+%DefaultOtherAccess DEFAULT  ('Deny None')
+%DefaultLazyOpen LONG  (1)
+%OverrideGenerate DEPEND %File LONG TIMES 0
+
+%OverrideCloseFile DEPEND %File DEFAULT TIMES 1
+WHEN  ('people') ('Use Default')
+
+%OverrideRILogout DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideUseDefaultFileManager DEPEND %File LONG TIMES 1
+WHEN  ('people') (1)
+
+%OverrideFileManagerClass DEPEND %File DEFAULT TIMES 1
+WHEN  ('people') ('AsciiFileClass')
+
+%OverrideUseDefaultRelationManager DEPEND %File LONG TIMES 1
+WHEN  ('people') (1)
+
+%OverrideRelationManagerClass DEPEND %File DEFAULT TIMES 1
+WHEN  ('people') ('AsciiFileClass')
+
+%OverrideThreaded DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideCreate DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideExternal DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideExternalSource DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalAPP DEPEND %File LONG TIMES 0
+
+%OverrideExport DEPEND %File LONG TIMES 0
+
+%OverrideOpenMode DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideUserAccess DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideOtherAccess DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%OverrideLazyOpen DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use Default')
+WHEN  ('ControlsPerRule') ('Use Default')
+WHEN  ('IMRuleControls') ('Use Default')
+WHEN  ('IMRuleProcOverride') ('Use Default')
+WHEN  ('IMRuleProcUserOverride') ('Use Default')
+WHEN  ('IMRules') ('Use Default')
+WHEN  ('OverrideProcPerRule') ('Use Default')
+WHEN  ('RuleControls') ('Use Default')
+WHEN  ('RuleProcOverride') ('Use Default')
+WHEN  ('RuleProcUserOverride') ('Use Default')
+WHEN  ('Rules') ('Use Default')
+WHEN  ('RulesGroup') ('Use Default')
+WHEN  ('people') ('Use Default')
+
+%StandardExternalModule DEPEND %Module LONG TIMES 5
+WHEN  ('') (1)
+WHEN  ('RuleDemoC10.clw') (1)
+WHEN  ('RuleDemoC10001.clw') (1)
+WHEN  ('RuleDemoC10002.clw') (1)
+WHEN  ('RuleDemoC10003.clw') (1)
+
+%WindowManagerType DEFAULT  ('WindowManager')
+%ResetOnGainFocus LONG  (0)
+%AutoToolbar LONG  (1)
+%ErrorManagerType DEFAULT  ('ErrorClass')
+%PopupClass DEFAULT  ('PopupClass')
+%SelectFileClass DEFAULT  ('SelectFileClass')
+%ResizerType DEFAULT  ('WindowResizeClass')
+%ResizerDeFaultFindParents LONG  (1)
+%ResizerDefaultOptimizeMoves LONG  (0)
+%ResizerDefaultOptimizeRedraws LONG  (1)
+%INIClass DEFAULT  ('INIClass')
+%RunTimeTranslatorType DEFAULT  ('TranslatorClass')
+%ExtractionFilename DEFAULT  ('')
+%FileManagerType DEFAULT  ('FileManager')
+%ViewManagerType DEFAULT  ('ViewManager')
+%RelationManagerType DEFAULT  ('RelationManager')
+%BrowserType DEFAULT  ('BrowseClass')
+%ActiveInvisible LONG  (0)
+%AllowUnfilled LONG  (0)
+%RetainRow LONG  (1)
+%EditInPlaceType DEFAULT  ('EditEntryClass')
+%StepManagerType DEFAULT  ('StepClass')
+%StepManagerLongType DEFAULT  ('StepLongClass')
+%StepManagerRealType DEFAULT  ('StepRealClass')
+%StepManagerStringType DEFAULT  ('StepStringClass')
+%StepManagerCustomType DEFAULT  ('StepCustomClass')
+%StepLocatorType DEFAULT  ('StepLocatorClass')
+%EntryLocatorType DEFAULT  ('EntryLocatorClass')
+%IncrementalLocatorType DEFAULT  ('IncrementalLocatorClass')
+%FilteredLocatorType DEFAULT  ('FilterLocatorClass')
+%FileDropManagerType DEFAULT  ('FileDropClass')
+%FileDropComboManagerType DEFAULT  ('FileDropComboClass')
+%ProcessType DEFAULT  ('ProcessClass')
+%PrintPreviewType DEFAULT  ('PrintPreviewClass')
+%ReportManagerType DEFAULT  ('ReportManager')
+%AsciiViewerClass DEFAULT  ('AsciiViewerClass')
+%AsciiSearchClass DEFAULT  ('AsciiSearchClass')
+%AsciiPrintClass DEFAULT  ('AsciiPrintClass')
+%AsciiFileManagerType DEFAULT  ('AsciiFileClass')
+%ToolbarClass DEFAULT  ('ToolbarClass')
+%ToolbarListBoxType DEFAULT  ('ToolbarListboxClass')
+%ToolbarRelTreeType DEFAULT  ('ToolbarReltreeClass')
+%ToolbarUpdateClassType DEFAULT  ('ToolbarUpdateClass')
+%AutoRefresh LONG  (1)
+%QBEFormType DEFAULT  ('QueryFormClass')
+%QBEFormVisualType DEFAULT  ('QueryFormVisual')
+%ClassItem UNIQUE DEFAULT  ('ErrorManager', 'ErrorStatusManager', 'FileManager:ControlsPerRule', |
+  'FileManager:IMRuleControls', 'FileManager:IMRuleProcOverride', 'FileManager:IMRuleProcUserOverride', |
+  'FileManager:IMRules', 'FileManager:OverrideProcPerRule', 'FileManager:RuleControls', |
+  'FileManager:RuleProcOverride', 'FileManager:RuleProcUserOverride', 'FileManager:Rules', |
+  'FileManager:RulesGroup', 'FileManager:people', 'FuzzyMatcher', 'INIManager', |
+  'RelationManager:ControlsPerRule', 'RelationManager:IMRuleControls', 'RelationManager:IMRuleProcOverride', |
+  'RelationManager:IMRuleProcUserOverride', 'RelationManager:IMRules', 'RelationManager:OverrideProcPerRule', |
+  'RelationManager:RuleControls', 'RelationManager:RuleProcOverride', 'RelationManager:RuleProcUserOverride', |
+  'RelationManager:Rules', 'RelationManager:RulesGroup', 'RelationManager:people', |
+  'Translator')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 27
+WHEN  ('ErrorManager') ('ErrorClass')
+WHEN  ('ErrorStatusManager') ('ErrorStatusClass')
+WHEN  ('FileManager:ControlsPerRule') ('FileManager')
+WHEN  ('FileManager:IMRuleControls') ('FileManager')
+WHEN  ('FileManager:IMRuleProcOverride') ('FileManager')
+WHEN  ('FileManager:IMRuleProcUserOverride') ('FileManager')
+WHEN  ('FileManager:IMRules') ('FileManager')
+WHEN  ('FileManager:OverrideProcPerRule') ('FileManager')
+WHEN  ('FileManager:RuleControls') ('FileManager')
+WHEN  ('FileManager:RuleProcOverride') ('FileManager')
+WHEN  ('FileManager:RuleProcUserOverride') ('FileManager')
+WHEN  ('FileManager:Rules') ('FileManager')
+WHEN  ('FileManager:people') ('FileManager')
+WHEN  ('FuzzyMatcher') ('FuzzyClass')
+WHEN  ('INIManager') ('INIClass')
+WHEN  ('RelationManager:ControlsPerRule') ('RelationManager')
+WHEN  ('RelationManager:IMRuleControls') ('RelationManager')
+WHEN  ('RelationManager:IMRuleProcOverride') ('RelationManager')
+WHEN  ('RelationManager:IMRuleProcUserOverride') ('RelationManager')
+WHEN  ('RelationManager:IMRules') ('RelationManager')
+WHEN  ('RelationManager:OverrideProcPerRule') ('RelationManager')
+WHEN  ('RelationManager:RuleControls') ('RelationManager')
+WHEN  ('RelationManager:RuleProcOverride') ('RelationManager')
+WHEN  ('RelationManager:RuleProcUserOverride') ('RelationManager')
+WHEN  ('RelationManager:Rules') ('RelationManager')
+WHEN  ('RelationManager:people') ('RelationManager')
+WHEN  ('Translator') ('TranslatorClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 27
+WHEN  ('ErrorManager') ('')
+WHEN  ('ErrorStatusManager') ('')
+WHEN  ('FileManager:ControlsPerRule') ('')
+WHEN  ('FileManager:IMRuleControls') ('')
+WHEN  ('FileManager:IMRuleProcOverride') ('')
+WHEN  ('FileManager:IMRuleProcUserOverride') ('')
+WHEN  ('FileManager:IMRules') ('')
+WHEN  ('FileManager:OverrideProcPerRule') ('')
+WHEN  ('FileManager:RuleControls') ('')
+WHEN  ('FileManager:RuleProcOverride') ('')
+WHEN  ('FileManager:RuleProcUserOverride') ('')
+WHEN  ('FileManager:Rules') ('')
+WHEN  ('FileManager:people') ('')
+WHEN  ('FuzzyMatcher') ('')
+WHEN  ('INIManager') ('')
+WHEN  ('RelationManager:ControlsPerRule') ('')
+WHEN  ('RelationManager:IMRuleControls') ('')
+WHEN  ('RelationManager:IMRuleProcOverride') ('')
+WHEN  ('RelationManager:IMRuleProcUserOverride') ('')
+WHEN  ('RelationManager:IMRules') ('')
+WHEN  ('RelationManager:OverrideProcPerRule') ('')
+WHEN  ('RelationManager:RuleControls') ('')
+WHEN  ('RelationManager:RuleProcOverride') ('')
+WHEN  ('RelationManager:RuleProcUserOverride') ('')
+WHEN  ('RelationManager:Rules') ('')
+WHEN  ('RelationManager:people') ('')
+WHEN  ('Translator') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%INIType DEFAULT  ('NVD_INI')
+%REGRoot DEFAULT  ('REG_CLASSES_ROOT')
+%DisableINISaveWindow LONG  (0)
+%PreserveVars MULTI LONG  ()
+%PreserveVar DEPEND %PreserveVars DEFAULT TIMES 0
+
+%FuzzyMatchingEnabled LONG  (1)
+%IgnoreCase LONG  (1)
+%WordOnly LONG  (0)
+%WindowFrameDragging LONG  (1)
+%UseDefaultXPManifest LONG  (0)
+%WindowEnableEnhanceFocus LONG  (0)
+%SelectedText LONG  (1)
+%SelectedRadio LONG  (1)
+%SelectedSpin LONG  (1)
+%SelectedCheck LONG  (1)
+%SelectedDropList LONG  (1)
+%SelectedDisplayChangeColor LONG  (1)
+%SelectedColor LONG  (65535)
+%SelectedStyle LONG  (1)
+%ExcludeSelectedDropList LONG  (1)
+%SelectedRequired LONG  (0)
+%SelectedRequiredColor LONG  (65535)
+%SelectedDisplayBox LONG  (1)
+%SelectedDisplayBoxFillColor LONG  (65535)
+%SelectedDisplayBoxBorderColor LONG  (0)
+%SelectedDisplayBoxBorderSize DEFAULT  ('2')
+%SelectedRequiredBox LONG  (0)
+%SelectedRequiredDisplayBoxFillColor LONG  (255)
+%SelectedRequiredDisplayBoxBorderColor LONG  (0)
+%SelectedCaret LONG  (1)
+%SelectedCaretColor LONG  (8421504)
+%SelectedCaretCharacter DEFAULT  ('»')
+%SelectedCaretCharacterSeparation DEFAULT  ('8')
+%GlobalUseEnterInsteadTab LONG  (0)
+%GlobalUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalUseEnterInsteadTabEnable DEFAULT  ('Enable')
+%GlobalUseEnterInsteadTabEnableValue DEFAULT  ('True')
+%GlobalEnableAutoSizeColumn LONG  (0)
+%GlobalEnableListFormatManager LONG  (0)
+%GlobalUserFieldListFormatManager DEFAULT  ('1')
+%TableOrigin DEFAULT  ('Application')
+%FileEquate DEFAULT  ('LFM_CFile')
+%ConfigFilePRE DEFAULT  ('CFG')
+%ConfigFileOEM LONG  (0)
+%ConfigFileTHREAD LONG  (1)
+%ConfigFileENCRYPT LONG  (0)
+%ConfigFilePASSWORD DEFAULT  ('')
+%FormatNameSize DEFAULT  ('30')
+%FormatBufferSize DEFAULT  ('5120')
+%VariableBufferSize DEFAULT  ('2048')
+%ConfigFilePath DEFAULT  ('')
+%UseConfigFileName DEFAULT  ('Default')
+%ConfigFileNAME DEFAULT  ('Formats.FDB')
+%ColonCounter DEFAULT  ('')
+%WrongSymbol DEFAULT  ('')
+%DictionaryTableOrigin FILE  ()
+%GlobalEnableRebase LONG  (0)
+%RBDMethod DEFAULT  ('Specify manually')
+%RBDImageBase DEFAULT  ('10000000')
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 29
+WHEN  ('ErrorManager') ('YES')
+WHEN  ('ErrorStatusManager') ('YES')
+WHEN  ('FileManager:ControlsPerRule') ('YES')
+WHEN  ('FileManager:IMRuleControls') ('YES')
+WHEN  ('FileManager:IMRuleProcOverride') ('YES')
+WHEN  ('FileManager:IMRuleProcUserOverride') ('YES')
+WHEN  ('FileManager:IMRules') ('YES')
+WHEN  ('FileManager:OverrideProcPerRule') ('YES')
+WHEN  ('FileManager:RuleControls') ('YES')
+WHEN  ('FileManager:RuleProcOverride') ('YES')
+WHEN  ('FileManager:RuleProcUserOverride') ('YES')
+WHEN  ('FileManager:Rules') ('YES')
+WHEN  ('FileManager:RulesGroup') ('YES')
+WHEN  ('FileManager:people') ('YES')
+WHEN  ('FuzzyMatcher') ('YES')
+WHEN  ('INIManager') ('YES')
+WHEN  ('RelationManager:ControlsPerRule') ('YES')
+WHEN  ('RelationManager:IMRuleControls') ('YES')
+WHEN  ('RelationManager:IMRuleProcOverride') ('YES')
+WHEN  ('RelationManager:IMRuleProcUserOverride') ('YES')
+WHEN  ('RelationManager:IMRules') ('YES')
+WHEN  ('RelationManager:OverrideProcPerRule') ('YES')
+WHEN  ('RelationManager:RuleControls') ('YES')
+WHEN  ('RelationManager:RuleProcOverride') ('YES')
+WHEN  ('RelationManager:RuleProcUserOverride') ('YES')
+WHEN  ('RelationManager:Rules') ('YES')
+WHEN  ('RelationManager:RulesGroup') ('YES')
+WHEN  ('RelationManager:people') ('YES')
+WHEN  ('Translator') ('YES')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 27
+WHEN  ('ErrorManager') ('GlobalErrors')
+WHEN  ('ErrorStatusManager') ('GlobalErrorsStatus')
+WHEN  ('FileManager:ControlsPerRule') ('Hide:Access:ControlsPerRule')
+WHEN  ('FileManager:IMRuleControls') ('Hide:Access:IMRuleControls')
+WHEN  ('FileManager:IMRuleProcOverride') ('Hide:Access:IMRuleProcOverride')
+WHEN  ('FileManager:IMRuleProcUserOverride') ('Hide:Access:IMRuleProcUserOverride')
+WHEN  ('FileManager:IMRules') ('Hide:Access:IMRules')
+WHEN  ('FileManager:OverrideProcPerRule') ('Hide:Access:OverrideProcPerRule')
+WHEN  ('FileManager:RuleControls') ('Hide:Access:RuleControls')
+WHEN  ('FileManager:RuleProcOverride') ('Hide:Access:RuleProcOverride')
+WHEN  ('FileManager:RuleProcUserOverride') ('Hide:Access:RuleProcUserOverride')
+WHEN  ('FileManager:Rules') ('Hide:Access:Rules')
+WHEN  ('FileManager:people') ('Hide:Access:people')
+WHEN  ('FuzzyMatcher') ('FuzzyMatcher')
+WHEN  ('INIManager') ('INIMgr')
+WHEN  ('RelationManager:ControlsPerRule') ('Hide:Relate:ControlsPerRule')
+WHEN  ('RelationManager:IMRuleControls') ('Hide:Relate:IMRuleControls')
+WHEN  ('RelationManager:IMRuleProcOverride') ('Hide:Relate:IMRuleProcOverride')
+WHEN  ('RelationManager:IMRuleProcUserOverride') ('Hide:Relate:IMRuleProcUserOverride')
+WHEN  ('RelationManager:IMRules') ('Hide:Relate:IMRules')
+WHEN  ('RelationManager:OverrideProcPerRule') ('Hide:Relate:OverrideProcPerRule')
+WHEN  ('RelationManager:RuleControls') ('Hide:Relate:RuleControls')
+WHEN  ('RelationManager:RuleProcOverride') ('Hide:Relate:RuleProcOverride')
+WHEN  ('RelationManager:RuleProcUserOverride') ('Hide:Relate:RuleProcUserOverride')
+WHEN  ('RelationManager:Rules') ('Hide:Relate:Rules')
+WHEN  ('RelationManager:people') ('Hide:Relate:people')
+WHEN  ('Translator') ('Translator')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 29
+WHEN  ('ErrorManager') (1)
+WHEN  ('ErrorStatusManager') (1)
+WHEN  ('FileManager:ControlsPerRule') (1)
+WHEN  ('FileManager:IMRuleControls') (1)
+WHEN  ('FileManager:IMRuleProcOverride') (1)
+WHEN  ('FileManager:IMRuleProcUserOverride') (1)
+WHEN  ('FileManager:IMRules') (1)
+WHEN  ('FileManager:OverrideProcPerRule') (1)
+WHEN  ('FileManager:RuleControls') (1)
+WHEN  ('FileManager:RuleProcOverride') (1)
+WHEN  ('FileManager:RuleProcUserOverride') (1)
+WHEN  ('FileManager:Rules') (1)
+WHEN  ('FileManager:RulesGroup') (1)
+WHEN  ('FileManager:people') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('RelationManager:ControlsPerRule') (1)
+WHEN  ('RelationManager:IMRuleControls') (1)
+WHEN  ('RelationManager:IMRuleProcOverride') (1)
+WHEN  ('RelationManager:IMRuleProcUserOverride') (1)
+WHEN  ('RelationManager:IMRules') (1)
+WHEN  ('RelationManager:OverrideProcPerRule') (1)
+WHEN  ('RelationManager:RuleControls') (1)
+WHEN  ('RelationManager:RuleProcOverride') (1)
+WHEN  ('RelationManager:RuleProcUserOverride') (1)
+WHEN  ('RelationManager:Rules') (1)
+WHEN  ('RelationManager:RulesGroup') (1)
+WHEN  ('RelationManager:people') (1)
+WHEN  ('Translator') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 29
+WHEN  ('ErrorManager') (1)
+WHEN  ('ErrorStatusManager') (1)
+WHEN  ('FileManager:ControlsPerRule') (1)
+WHEN  ('FileManager:IMRuleControls') (1)
+WHEN  ('FileManager:IMRuleProcOverride') (1)
+WHEN  ('FileManager:IMRuleProcUserOverride') (1)
+WHEN  ('FileManager:IMRules') (1)
+WHEN  ('FileManager:OverrideProcPerRule') (1)
+WHEN  ('FileManager:RuleControls') (1)
+WHEN  ('FileManager:RuleProcOverride') (1)
+WHEN  ('FileManager:RuleProcUserOverride') (1)
+WHEN  ('FileManager:Rules') (1)
+WHEN  ('FileManager:RulesGroup') (1)
+WHEN  ('FileManager:people') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('RelationManager:ControlsPerRule') (1)
+WHEN  ('RelationManager:IMRuleControls') (1)
+WHEN  ('RelationManager:IMRuleProcOverride') (1)
+WHEN  ('RelationManager:IMRuleProcUserOverride') (1)
+WHEN  ('RelationManager:IMRules') (1)
+WHEN  ('RelationManager:OverrideProcPerRule') (1)
+WHEN  ('RelationManager:RuleControls') (1)
+WHEN  ('RelationManager:RuleProcOverride') (1)
+WHEN  ('RelationManager:RuleProcUserOverride') (1)
+WHEN  ('RelationManager:Rules') (1)
+WHEN  ('RelationManager:RulesGroup') (1)
+WHEN  ('RelationManager:people') (1)
+WHEN  ('Translator') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 29
+WHEN  ('ErrorManager') ('ADOProcCommCalled')
+WHEN  ('ErrorStatusManager') ('')
+WHEN  ('FileManager:ControlsPerRule') ('ADOBlob')
+WHEN  ('FileManager:IMRuleControls') ('')
+WHEN  ('FileManager:IMRuleProcOverride') ('')
+WHEN  ('FileManager:IMRuleProcUserOverride') ('')
+WHEN  ('FileManager:IMRules') ('')
+WHEN  ('FileManager:OverrideProcPerRule') ('ADOBlob')
+WHEN  ('FileManager:RuleControls') ('')
+WHEN  ('FileManager:RuleProcOverride') ('')
+WHEN  ('FileManager:RuleProcUserOverride') ('')
+WHEN  ('FileManager:Rules') ('ADOBlob')
+WHEN  ('FileManager:RulesGroup') ('')
+WHEN  ('FileManager:people') ('ADOProcCommCalled')
+WHEN  ('FuzzyMatcher') ('ADOProcCommCalled')
+WHEN  ('INIManager') ('ADOProcCommCalled')
+WHEN  ('RelationManager:ControlsPerRule') ('ADOBlob')
+WHEN  ('RelationManager:IMRuleControls') ('')
+WHEN  ('RelationManager:IMRuleProcOverride') ('')
+WHEN  ('RelationManager:IMRuleProcUserOverride') ('')
+WHEN  ('RelationManager:IMRules') ('')
+WHEN  ('RelationManager:OverrideProcPerRule') ('ADOBlob')
+WHEN  ('RelationManager:RuleControls') ('')
+WHEN  ('RelationManager:RuleProcOverride') ('')
+WHEN  ('RelationManager:RuleProcUserOverride') ('')
+WHEN  ('RelationManager:Rules') ('ADOBlob')
+WHEN  ('RelationManager:RulesGroup') ('')
+WHEN  ('RelationManager:people') ('ADOProcCommCalled')
+WHEN  ('Translator') ('ADOProcCommCalled')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 29
+WHEN  ('ErrorManager') (0)
+WHEN  ('ErrorStatusManager') (0)
+WHEN  ('FileManager:ControlsPerRule') (0)
+WHEN  ('FileManager:IMRuleControls') (0)
+WHEN  ('FileManager:IMRuleProcOverride') (0)
+WHEN  ('FileManager:IMRuleProcUserOverride') (0)
+WHEN  ('FileManager:IMRules') (0)
+WHEN  ('FileManager:OverrideProcPerRule') (0)
+WHEN  ('FileManager:RuleControls') (0)
+WHEN  ('FileManager:RuleProcOverride') (0)
+WHEN  ('FileManager:RuleProcUserOverride') (0)
+WHEN  ('FileManager:Rules') (0)
+WHEN  ('FileManager:RulesGroup') (0)
+WHEN  ('FileManager:people') (0)
+WHEN  ('FuzzyMatcher') (0)
+WHEN  ('INIManager') (0)
+WHEN  ('RelationManager:ControlsPerRule') (0)
+WHEN  ('RelationManager:IMRuleControls') (0)
+WHEN  ('RelationManager:IMRuleProcOverride') (0)
+WHEN  ('RelationManager:IMRuleProcUserOverride') (0)
+WHEN  ('RelationManager:IMRules') (0)
+WHEN  ('RelationManager:OverrideProcPerRule') (0)
+WHEN  ('RelationManager:RuleControls') (0)
+WHEN  ('RelationManager:RuleProcOverride') (0)
+WHEN  ('RelationManager:RuleProcUserOverride') (0)
+WHEN  ('RelationManager:Rules') (0)
+WHEN  ('RelationManager:RulesGroup') (0)
+WHEN  ('RelationManager:people') (0)
+WHEN  ('Translator') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 4
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('INIManager')TIMES 0
+WHEN  ('RelationManager:ControlsPerRule')TIMES 0
+WHEN  ('RelationManager:people')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 4
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('INIManager')TIMES 0
+WHEN  ('RelationManager:ControlsPerRule')TIMES 0
+WHEN  ('RelationManager:people')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%FileDeclarationMode DEPEND %File DEFAULT TIMES 13
+WHEN  ('') ('Use User Options')
+WHEN  ('ControlsPerRule') ('Use User Options')
+WHEN  ('IMRuleControls') ('Use User Options')
+WHEN  ('IMRuleProcOverride') ('Use User Options')
+WHEN  ('IMRuleProcUserOverride') ('Use User Options')
+WHEN  ('IMRules') ('Use User Options')
+WHEN  ('OverrideProcPerRule') ('Use User Options')
+WHEN  ('RuleControls') ('Use User Options')
+WHEN  ('RuleProcOverride') ('Use User Options')
+WHEN  ('RuleProcUserOverride') ('Use User Options')
+WHEN  ('Rules') ('Use User Options')
+WHEN  ('RulesGroup') ('Use User Options')
+WHEN  ('people') ('Use User Options')
+
+%FileDeclarationThread DEPEND %File LONG TIMES 13
+WHEN  ('') (0)
+WHEN  ('ControlsPerRule') (1)
+WHEN  ('IMRuleControls') (1)
+WHEN  ('IMRuleProcOverride') (1)
+WHEN  ('IMRuleProcUserOverride') (1)
+WHEN  ('IMRules') (1)
+WHEN  ('OverrideProcPerRule') (1)
+WHEN  ('RuleControls') (1)
+WHEN  ('RuleProcOverride') (1)
+WHEN  ('RuleProcUserOverride') (1)
+WHEN  ('Rules') (1)
+WHEN  ('RulesGroup') (1)
+WHEN  ('people') (1)
+
+%FileDeclarationBindable DEPEND %File LONG TIMES 13
+WHEN  ('') (1)
+WHEN  ('ControlsPerRule') (1)
+WHEN  ('IMRuleControls') (1)
+WHEN  ('IMRuleProcOverride') (1)
+WHEN  ('IMRuleProcUserOverride') (1)
+WHEN  ('IMRules') (1)
+WHEN  ('OverrideProcPerRule') (1)
+WHEN  ('RuleControls') (1)
+WHEN  ('RuleProcOverride') (1)
+WHEN  ('RuleProcUserOverride') (1)
+WHEN  ('Rules') (1)
+WHEN  ('RulesGroup') (1)
+WHEN  ('people') (1)
+
+%FileDeclarationName DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationOver DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationType DEPEND %File LONG TIMES 13
+WHEN  ('') (0)
+WHEN  ('ControlsPerRule') (0)
+WHEN  ('IMRuleControls') (0)
+WHEN  ('IMRuleProcOverride') (0)
+WHEN  ('IMRuleProcUserOverride') (0)
+WHEN  ('IMRules') (0)
+WHEN  ('OverrideProcPerRule') (0)
+WHEN  ('RuleControls') (0)
+WHEN  ('RuleProcOverride') (0)
+WHEN  ('RuleProcUserOverride') (0)
+WHEN  ('Rules') (0)
+WHEN  ('RulesGroup') (0)
+WHEN  ('people') (0)
+
+%NoGenerateGlobals LONG  (0)
+%ImageClass DEFAULT  ('ImageManager')
+%DefaultErrorCategory DEFAULT  ('ABC')
+%StoreErrorHistory LONG  (0)
+%LimitStoredHistory LONG  (0)
+%ErrorHistoryThreshold DEFAULT  ('300')
+%HistoryViewTrigger DEFAULT  ('Level:Fatal')
+%TranslationGroups MULTI LONG  ()
+%TranslationFile DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%TranslationGroup DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%CalendarManagerType DEFAULT  ('CalendarClass')
+%GlobalChangeColor LONG  (0)
+%GlobalColorSunday LONG  (255)
+%GlobalColorSaturday LONG  (255)
+%GlobalColorHoliday LONG  (32768)
+%GlobalColorOther LONG  (0)
+%GlobalSelectOnClose DEFAULT  ('Select')
+%GlobalUseABCClasess LONG  (1)
+%FormVCRManagerType DEFAULT  ('FormVCRClass')
+%BrowseEIPManagerType DEFAULT  ('BrowseEIPManager')
+%QBEListType DEFAULT  ('QueryListClass')
+%QBEListVisualType DEFAULT  ('QueryListVisual')
+%FuzzyMatcherClass DEFAULT  ('FuzzyClass')
+%GridClass DEFAULT  ('GridClass')
+%SidebarClass DEFAULT  ('SidebarClass')
+%ReportTargetSelectorManagerType DEFAULT  ('ReportTargetSelectorClass')
+%BreakManagerType DEFAULT  ('BreakManagerClass')
+%ToolbarFormVCRType DEFAULT  ('ToolbarFormVCRClass')
+%OverrideAbcSettings LONG  (0)
+%AbcSourceLocation DEFAULT  ('LINK')
+%AbcLibraryName DEFAULT  ('')
+%AppTemplateFamily DEFAULT  ('ABC')
+%CWTemplateVersion DEFAULT  ('v10.0')
+%ABCVersion DEFAULT  ('10000')
+%ProgramIcon DEFAULT  ('')
+%INIInAppDirectory LONG  (1)
+%EditInPlaceInterface DEFAULT  ('Original')
+%EditInPlaceEntryType DEFAULT  ('EditEntryClass')
+%EditInPlaceTextType DEFAULT  ('EditTextClass')
+%EditInPlaceCheckType DEFAULT  ('EditCheckClass')
+%EditInPlaceSpinType DEFAULT  ('EditSpinClass')
+%EditInPlaceDropListType DEFAULT  ('EditDropListClass')
+%EditInPlaceDropComboType DEFAULT  ('EditDropComboClass')
+%EditInPlaceColorType DEFAULT  ('EditColorClass')
+%EditInPlaceFileType DEFAULT  ('EditFileClass')
+%EditInPlaceFontType DEFAULT  ('EditFontClass')
+%EditInPlaceMultiSelectType DEFAULT  ('EditMultiSelectClass')
+%EditInPlaceCalendarType DEFAULT  ('EditCalendarClass')
+%EditInPlaceLookupType DEFAULT  ('EditLookupClass')
+%EditInPlaceOtherType DEFAULT  ('EditEntryClass')
+%GlobalLFMSortOrderMenuText DEFAULT  ('SortOrder')
+%DefaultLocalExternal LONG  (0)
+%OverrideLocalExternal DEPEND %File LONG TIMES 0
+
+%ErrorStatusManagerType DEFAULT  ('ErrorStatusClass')
+%INIProgramIniLocation DEFAULT  ('APPDIR')
+%INICSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%CSIDLCompanyDir DEFAULT  ('')
+%CSIDLProductDir DEFAULT  ('')
+%CSIDLCreate LONG  (0)
+%ButtonMarginsCompatibility LONG  (0)
+%GenerateXPManifest LONG  (1)
+%LinkGenerateXPManifest LONG  (1)
+%AddVistaXPManifest LONG  (1)
+%VistaManifestExecutionLevel DEFAULT  ('asInvoker')
+%VistaManifestUIAccess LONG  (0)
+%NoThemedControlsDependency LONG  (0)
+%VistaManifestDependentAssembly MULTI LONG  ()
+%VistaManifestDependentAssemblyName DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyVersion DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyType DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyPublicKeyToken DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyLanguage DEPEND %VistaManifestDependentAssembly DEFAULT TIMES 0
+
+%VistaManifestDependentAssemblyProcessorArchitecture DEPEND %VistaManifestDependentAssembly LONG TIMES 0
+
+%W7ManifestVista LONG  (1)
+%W7ManifestW7 LONG  (1)
+%W7ManifestW8 LONG  (1)
+%W7ManifestW81 LONG  (1)
+%W7ManifestW10 LONG  (1)
+%ForceMakeTransparentXPManifest LONG  (0)
+%ForceMakeColorXPManifest LONG  (0)
+%ForceSHEETNoTheme LONG  (0)
+%ExtUIXPMenuEnableGlobal LONG  (0)
+%ExtUIXPMenuColorTypeGlobal DEFAULT  ('OFF')
+%ExtUIXPMenuDisableImageBar LONG  (1)
+%ExtUIXPMenuEnableRuntime LONG  (0)
+%ExtUIXPMenuRuntimeVar DEFAULT  ('')
+%ExtUIXPMenuColorLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorRightGlobal LONG  (12560039)
+%ExtUIXPMenuColorSelectionBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectionBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuSelVertical LONG  (1)
+%ExtUIXPMenuColorSelectionBorderGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorItemBackgroundGlobal LONG  (-2147483644)
+%ExtUIXPMenuColorNormalText LONG  (0)
+%ExtUIXPMenuColorSelectedText LONG  (0)
+%ExtUIXPMenuColorHotText LONG  (0)
+%ExtUIXPMenuFlat LONG  (1)
+%ExtUIXPMenuShowImageBar LONG  (0)
+%ExtUIXPMenuSeparator3D LONG  (1)
+%ExtUIXPMenuSeparatorFull LONG  (0)
+%ExtUIXPMenuVerticalLine LONG  (1)
+%ExtUIMDITabGlobal DEFAULT  ('DISABLE')
+%ExtUIMDITabStyleGlobal DEFAULT  ('Default')
+%ExtUITabStyleGlobal DEFAULT  ('Default')
+%SelectedList LONG  (1)
+%EnableOSK DEFAULT  ('OFF')
+%GlobalInterLine DEFAULT  ('0')
+%GeneratePropDataPath LONG  (0)
+%PropDataPathLocation DEFAULT  ('CSIDLLIKEINI')
+%DataPathCSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%DataPathCSIDLCompanyDir DEFAULT  ('')
+%DataPathCSIDLProductDir DEFAULT  ('')
+%DataPathCSIDLCreate LONG  (0)
+%DataPathOtherDirectory DEFAULT  ('')
+%DataPathOtherDirectoryCreate LONG  (0)
+%AllowSelectCopy LONG  (0)
+%VistaManifestdpiAware LONG  (1)
+%OverrideDoNotAssertOnCloseMisuse DEPEND %File LONG TIMES 12
+WHEN  ('') (0)
+WHEN  ('ControlsPerRule') (0)
+WHEN  ('IMRuleControls') (0)
+WHEN  ('IMRuleProcOverride') (0)
+WHEN  ('IMRuleProcUserOverride') (0)
+WHEN  ('IMRules') (0)
+WHEN  ('OverrideProcPerRule') (0)
+WHEN  ('RuleControls') (0)
+WHEN  ('RuleProcOverride') (0)
+WHEN  ('RuleProcUserOverride') (0)
+WHEN  ('Rules') (0)
+WHEN  ('people') (0)
+
+[ADDITION]
+NAME SVBusinessRules GlobalBusinessRulesManager
+[INSTANCE]
+INSTANCE 2
+[PROMPTS]
+%GlobalRulesImported LONG  (0)
+%GlobalRulesTemplateMode DEFAULT  ('Original')
+%GlobalRulesFileName DEFAULT  ('RulesTest')
+%GlobalAllRuleBaseDescription DEFAULT  ('Procedure Rules')
+%GlobalErrorIndicatorImage DEFAULT  ('BRuleNo.ico')
+%GlobalRuleOffSetRight DEFAULT  ('3')
+%GlobalRuleBases MULTI LONG  (1)
+%GlobalRuleBaseName DEPEND %GlobalRuleBases DEFAULT TIMES 1
+WHEN  (1) ('GlobalPeople')
+
+%GlobalRuleBaseDescription DEPEND %GlobalRuleBases DEFAULT TIMES 1
+WHEN  (1) ('Global People Rules')
+
+%GlobalRules DEPEND %GlobalRuleBases MULTI LONG TIMES 1
+WHEN  (1) (1, 2, 4)
+
+%GlobalRuleName DEPEND %GlobalRules DEFAULT TIMES 1
+WHEN  (1)TIMES 3
+WHEN  (1) ('PEO:IdCheck')
+WHEN  (2) ('PEO:FirstNameCheck')
+WHEN  (4) ('PEO:GenderCheck')
+
+%GlobalRuleDescription DEPEND %GlobalRules DEFAULT TIMES 1
+WHEN  (1)TIMES 3
+WHEN  (1) ('People Id cannot be 0')
+WHEN  (2) ('FirstName cannot be empty')
+WHEN  (4) ('Please choose M or F')
+
+%GlobalRuleExpression DEPEND %GlobalRules DEFAULT TIMES 1
+WHEN  (1)TIMES 3
+WHEN  (1) ('PEO:Id >0')
+WHEN  (2) ('PEO:FirstName<<>''''')
+WHEN  (4) ('CHOOSE(PEO:Gender = ''M'' or PEO:Gender = ''F'' , 1, 0)')
+
+%GlobalRuleLinkField DEPEND %GlobalRules DEFAULT TIMES 1
+WHEN  (1)TIMES 3
+WHEN  (1) ('PEO:Id')
+WHEN  (2) ('PEO:FirstName')
+WHEN  (4) ('PEO:Gender')
+
+%GlobalRuleShowIndicator DEPEND %GlobalRules LONG TIMES 1
+WHEN  (1)TIMES 3
+WHEN  (1) (1)
+WHEN  (2) (1)
+WHEN  (4) (1)
+
+%GlobalRuleEnableDisableControl DEPEND %GlobalRules MULTI DEFAULT TIMES 1
+WHEN  (1)TIMES 3
+WHEN  (1) ('?Ok', '?OkButton', '?CancelButton', '?Close', '?Accept', '?Save')
+WHEN  (2) ('?Ok', '?OkButton', '?CancelButton', '?Close', '?Accept', '?Save')
+WHEN  (4) ('?Ok', '?OkButton', '?CancelButton', '?Close', '?Accept', '?Save')
+
+%GlobalRuleHideUnHideControl DEPEND %GlobalRules MULTI DEFAULT TIMES 0
+
+%BRMStdFileName DEPEND %GlobalRuleBases FILE TIMES 1
+WHEN  (1) (people)
+
+%BRMStdProcName DEPEND %GlobalRuleBases DEFAULT TIMES 1
+WHEN  (1) ('updatepeople')
+
+%GlobalViewRulesHeaderIcon DEFAULT  ('BRules.ico')
+%GlobalViewRulesValidRuleIcon DEFAULT  ('BRuleOk.ico')
+%GlobalViewRulesBrokenRuleIcon DEFAULT  ('BRuleNo.ico')
+%GlobalAllRuleEnableDisableControl MULTI DEFAULT  ()
+%GlobalAllRuleHideUnHideControl MULTI DEFAULT  ()
+%Found LONG  (0)
+%NewRule LONG  (7)
+[PERSIST]
+%SaveCreateLocalMap DEFAULT  ('1')
+%GenerationCompleted DEPEND %Module DEFAULT TIMES 4
+WHEN  ('RuleDemoC10.clw') ('1')
+WHEN  ('RuleDemoC10001.clw') ('1')
+WHEN  ('RuleDemoC10002.clw') ('1')
+WHEN  ('RuleDemoC10003.clw') ('1')
+
+%LastTarget32 DEFAULT  ('1')
+%LastProgramExtension DEFAULT  ('EXE')
+%LastApplicationDebug DEFAULT  ('')
+%LastApplicationLocalLibrary DEFAULT  ('')
+[PROJECT]
+#noedit
+#system win32 exe
+#model clarion dll
+#set RELEASE = on
+#pragma debug(vid=>off)
+#pragma optimize(cpu=>386)
+#pragma define(_XmlLibDllMode_=>0)
+#pragma define(_XmlLibLinkMode_=>1)
+#pragma define(_ABCDllMode_=>0) -- GENERATED
+#pragma define(_ABCLinkMode_=>1) -- GENERATED
+#compile "RuleDemoC10.clw" -- GENERATED
+#compile "RuleDemoC10001.clw" -- GENERATED
+#compile "RuleDemoC10002.clw" -- GENERATED
+#compile "RuleDemoC10003.clw" -- GENERATED
+#compile "RuleDemoC10_BC0.CLW" -- GENERATED
+#compile "RULEDEMOC10_BC.CLW" -- GENERATED
+#pragma link("BRuleNo.ico") -- GENERATED
+#pragma link("BRules.ico") -- GENERATED
+#pragma link("BRuleOk.ico") -- GENERATED
+#pragma link("C%V%tps%X%%L%.lib") -- GENERATED
+#pragma link("RuleDemo.EXE.manifest") -- GENERATED
+#link "RuleDemo.EXE"

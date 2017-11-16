@@ -16,10 +16,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{DC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{F1172457-24F0-45AF-8DC8-3A622CB9A1AD}"
 	ProjectSection(SolutionItems) = postProject
-		..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.clw = ..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.clw
-		..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.inc = ..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.inc
 		..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.clw = ..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.clw
 		..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.inc = ..\..\..\..\..\Clarion10\accessory\libsrc\win\qs_RunRule_Main_Class.inc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SV", "SV", "{2C07B2DF-41DF-49BC-824F-F1093DB38453}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.inc = ..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.inc
+		..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.clw = ..\..\..\..\..\Clarion10.12760\LibSrc\win\abrule.clw
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dictionary", "Dictionary", "{3A479E25-45B5-4A91-9C8B-436BB46670C3}"
@@ -41,5 +45,8 @@ Global
 		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Debug|Win32.ActiveCfg = Debug|Win32
 		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Release|Win32.Build.0 = Release|Win32
 		{0D12E7FE-DA64-418A-8EF0-E92EB344B206}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C07B2DF-41DF-49BC-824F-F1093DB38453} = {F1172457-24F0-45AF-8DC8-3A622CB9A1AD}
 	EndGlobalSection
 EndGlobal

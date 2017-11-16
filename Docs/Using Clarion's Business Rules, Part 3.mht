@@ -1,0 +1,2002 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: Using Clarion's Business Rules, Part 3
+Date: Sat, 6 Nov 2004 10:38:18 +0200
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0000_01C4C3EC.BAC7A200";
+	type="text/html"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1441
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.clarionmag.com/cmag/v6/v6n11bizrules3.html?login=true
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Using Clarion's Business Rules, Part 3</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META http-equiv=3DPage-Enter content=3DblendTrans(duration=3D0)><LINK=20
+href=3D"http://www.clarionmag.com/cmag/cmag.css" type=3Dtext/css=20
+rel=3Dstylesheet><HTML:BASE />
+<META content=3D"MSHTML 6.00.2800.1458" name=3DGENERATOR></HEAD>
+<BODY bgColor=3D#020e84>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+  <TBODY>
+  <TR vAlign=3Dtop>
+    <TD width=3D"100%">
+      <TABLE height=3D84 cellSpacing=3D0 cellPadding=3D0 width=3D768 =
+border=3D0>
+        <TBODY>
+        <TR>
+          <TD width=3D"1%"><IMG height=3D84=20
+            src=3D"http://www.clarionmag.com/images/cmlogo2.gif" =
+width=3D265=20
+            border=3D0></TD>
+          <TD vAlign=3Dcenter align=3Dmiddle width=3D"1%"><IMG =
+height=3D1=20
+            src=3D"http://www.clarionmag.com/images/1x1.gif" width=3D1 =
+border=3D0> </TD>
+          <TD vAlign=3Dcenter align=3Dleft width=3D"100%"><A=20
+            href=3D"http://www.clarionmag.com/cmag/subscribe.html"><IMG =
+height=3D60=20
+            src=3D"http://www.clarionmag.com/images/ads/cmagbanner5.gif" =
+width=3D468=20
+            border=3D0></A> =
+</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D825 border=3D0>
+  <TBODY>
+  <TR vAlign=3Dtop>
+    <TD colSpan=3D4>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD width=3D1 bgColor=3D#020e84 height=3D1><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D125></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/sel1.gif" =
+width=3D8></TD>
+          <TD =
+background=3Dhttp://www.clarionmag.com/images/tabs1/sel2.gif=20
+          height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/sel3.gif" =
+width=3D8></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel1.gif" =
+width=3D8></TD>
+          <TD =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel2.gif=20
+          height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel3.gif" =
+width=3D8></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel1.gif" =
+width=3D8></TD>
+          <TD =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel2.gif=20
+          height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel3.gif" =
+width=3D8></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel1.gif" =
+width=3D8></TD>
+          <TD =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel2.gif=20
+          height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel3.gif" =
+width=3D8></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel1.gif" =
+width=3D8></TD>
+          <TD =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel2.gif=20
+          height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel3.gif" =
+width=3D8></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel1.gif" =
+width=3D8></TD>
+          <TD =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel2.gif=20
+          height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 height=3D6><IMG height=3D6=20
+            src=3D"http://www.clarionmag.com/images/tabs1/unsel3.gif" =
+width=3D8></TD>
+          <TD width=3D"100%" bgColor=3D#020e84 height=3D1><IMG =
+height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif"=20
+width=3D1></TD></TR>
+        <TR>
+          <TD width=3D1 bgColor=3D#020e84 height=3D1><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/sel4.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/sel4top.gif"></TD>
+          <TD class=3Dtabtext vAlign=3Dtop noWrap align=3Dmiddle =
+width=3D60=20
+          bgColor=3D#fffff><A class=3Dtabtext=20
+            href=3D"http://www.clarionmag.com/index.html">Magazine =
+</A></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/sel6.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/sel6top.gif"></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel4.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel4top.gif"></TD>
+          <TD class=3Dtabtext vAlign=3Dtop noWrap align=3Dmiddle =
+width=3D60=20
+          bgColor=3D#dee7ef><A class=3Dtabtext=20
+            href=3D"http://www.clarionmag.com/books/index.html">Books =
+</A></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel6.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel6top.gif"></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel4.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel4top.gif"></TD>
+          <TD class=3Dtabtext vAlign=3Dtop noWrap align=3Dmiddle =
+width=3D60=20
+          bgColor=3D#dee7ef><A class=3Dtabtext=20
+            =
+href=3D"http://www.clarionmag.com/cmag/store.html?action=3Dshop">Store=20
+            </A></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel6.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel6top.gif"></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel4.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel4top.gif"></TD>
+          <TD class=3Dtabtext vAlign=3Dtop noWrap align=3Dmiddle =
+width=3D60=20
+          bgColor=3D#dee7ef><A class=3Dtabtext=20
+            href=3D"http://www.clarionmag.com/cmag/news.html">News =
+</A></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel6.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel6top.gif"></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel4.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel4top.gif"></TD>
+          <TD class=3Dtabtext vAlign=3Dtop noWrap align=3Dmiddle =
+width=3D60=20
+          bgColor=3D#dee7ef><A class=3Dtabtext=20
+            =
+href=3D"http://www.clarionmag.com/cmag/products.html">Products </A></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel6.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel6top.gif"></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel4.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel4top.gif"></TD>
+          <TD class=3Dtabtext vAlign=3Dtop noWrap align=3Dmiddle =
+width=3D60=20
+          bgColor=3D#dee7ef><A class=3Dtabtext=20
+            =
+href=3D"http://www.clarionmag.com/cmag/downloads.html">Downloads=20
+          </A></TD>
+          <TD vAlign=3Dtop width=3D8=20
+          =
+background=3Dhttp://www.clarionmag.com/images/tabs1/unsel6.gif><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/unsel6top.gif"></TD>
+          <TD width=3D"100%" bgColor=3D#020e84 height=3D1><IMG =
+height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif"=20
+width=3D1></TD></TR>
+        <TR>
+          <TD width=3D1 bgColor=3D#517f9f height=3D2><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D140></TD>
+          <TD width=3D8 =
+background=3Dhttp://www.clarionmag.com/images/tabs1/sel7.gif=20
+          height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD bgColor=3D#ffffff><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 =
+background=3Dhttp://www.clarionmag.com/images/tabs1/sel9.gif=20
+          height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD bgColor=3D#517f9f><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD bgColor=3D#517f9f><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD bgColor=3D#517f9f><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD bgColor=3D#517f9f><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD bgColor=3D#517f9f><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D1></TD>
+          <TD width=3D8 bgColor=3D#517f9f height=3D2><IMG height=3D2=20
+            src=3D"http://www.clarionmag.com/images/tabs1/blank.gif" =
+width=3D8></TD>
+          <TD align=3Dright width=3D"100%" bgColor=3D#517f9f =
+height=3D2><IMG=20
+            =
+src=3D"http://www.clarionmag.com/images/tabs1/rightcorner1.gif"></TD></TR=
+></TBODY></TABLE></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD vAlign=3Dtop align=3Dleft width=3D"1%" bgColor=3D#ead5a1><BR>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft width=3D"100%" =
+bgColor=3D#ead5a1><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/1x1.gif" width=3D100 =
+
+            border=3D0><BR>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/index.html">HOME</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/cmag/faq.html">Frequently =
+Asked=20
+            Questions</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/cmag/login.html">Log =
+In</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/cmag/pdfs.html">Download=20
+PDFs</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/subscribe.html">Subscribe/Renew</A=
+></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/subscribe.html#membership">Free=20
+            Membership</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/freearticles.html">Free=20
+            Articles</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/ads.html">Advertise</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/recentcomments.html">Reader=20
+            Comments</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/cmag/writers.html">Write =
+For=20
+            ClarionMag</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/privacy.html">Privacy</A></P>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/contactinfo.html">Contact</A></P>
+            <P class=3Dleftmenu1 align=3Dleft>&nbsp;</P></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft width=3D"100%" =
+bgColor=3D#ede2c9><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/1x1.gif" width=3D100 =
+
+            border=3D0><BR>
+            <FORM action=3D/cmag/search.frm method=3Dget>
+            <P class=3Dleftmenu1 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/cmag/search.frm">Advanced=20
+            Search</A><BR><INPUT type=3Dhidden value=3Dtrue =
+name=3DformID> <INPUT=20
+            size=3D6 name=3Dquery> <INPUT type=3Dsubmit value=3DGo =
+name=3Dsubmit>=20
+            </P></FORM></TD></TR>
+        <TR>
+          <TD vAlign=3Dcenter align=3Dmiddle bgColor=3D#ffffff>
+            <TABLE borderColor=3D#ede2c9 cellSpacing=3D0 cellPadding=3D0 =
+width=3D"100%"=20
+            border=3D1>
+              <TBODY>
+              <TR>
+                <TD align=3Dmiddle bgColor=3D#ede2c9>
+                  <P><A href=3D"http://www.softvelocity.com/"><IMG =
+height=3D40=20
+                  alt=3DSoftVelocity=20
+                  src=3D"http://www.clarionmag.com/images/svlogo3.jpg" =
+width=3D120=20
+                  border=3D0></A></P>
+                  <P><A=20
+                  =
+href=3D"http://cwmantis.glacierdigital.com/login_page.php"><IMG=20
+                  height=3D23 alt=3D"CW Mantis Bug Reporting"=20
+                  =
+src=3D"http://www.clarionmag.com/images/cwmantislogo120.gif"=20
+                  width=3D120 =
+border=3D1></A></P></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft width=3D"100%" =
+bgColor=3D#ead5a1><IMG=20
+            height=3D10 src=3D"http://www.clarionmag.com/images/1x1.gif" =
+width=3D100=20
+            border=3D0><BR>
+            <P class=3Dleftmenu1 align=3Dleft><FONT =
+color=3D#a20000><STRONG>BACK=20
+            ISSUES<BR>By DATE</STRONG></FONT></P></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft width=3D"100%" =
+bgColor=3D#ede2c9><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/1x1.gif" width=3D100 =
+
+            border=3D0><BR>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            href=3D"http://www.clarionmag.com/col/index.html">COL=20
+1997-1999</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/index.html?year=3D1999&amp;limit=3D500&=
+amp;desc=3Dfalse">CMag=20
+            1999</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/index.html?year=3D2000&amp;limit=3D500&=
+amp;desc=3Dfalse">CMag=20
+            2000</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/index.html?year=3D2001&amp;limit=3D500&=
+amp;desc=3Dfalse">CMag=20
+            2001</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/index.html?year=3D2002&amp;limit=3D500&=
+amp;desc=3Dfalse">CMag=20
+            2002</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/index.html?year=3D2003&amp;limit=3D500&=
+amp;desc=3Dfalse">CMag=20
+            2003</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/index.html?year=3D2004&amp;limit=3D500&=
+amp;desc=3Dfalse">CMag=20
+            2004</A></P>
+            <P class=3Dleftmenu2 align=3Dleft><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/icetipsbios/index.html">Icetips Bios=20
+            2001-2003</A></P>
+            <P class=3Dleftmenu2>&nbsp;</P></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft width=3D"100%" =
+bgColor=3D#ead5a1><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/1x1.gif" width=3D100 =
+
+            border=3D0><BR>
+            <P class=3Dleftmenu1 align=3Dleft><FONT =
+color=3D#a20000><STRONG>BACK=20
+            ISSUES<BR>By TOPIC</STRONG></FONT></P></TD></TR>
+        <TR>
+          <TD vAlign=3Dtop align=3Dleft width=3D"100%" =
+bgColor=3D#ede2c9><IMG height=3D1=20
+            src=3D"http://www.clarionmag.com/images/1x1.gif" width=3D100 =
+
+            border=3D0><BR>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D123">Brow=
+ses</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D155">CLAR=
+ION=20
+            6</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D296">Clar=
+ion=20
+            Language</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D120">COM/=
+OLE</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D131">Data=
+bases</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D126">Desi=
+gn=20
+            &amp; Development</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D148">DevC=
+ons</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D130">Form=
+s</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D119">Gett=
+ing=20
+            Started</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D124">Inte=
+rnet</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D122">Misc=
+.</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D135">Mult=
+imedia</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D129">News=
+</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D128">Non-=
+tech</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D127">OOP<=
+/A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D132">Repo=
+rts=20
+            &amp; Processes</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D133">Revi=
+ews</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D134">Temp=
+lates</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D125">Tips=
+/Techniques</A></P>
+            <P class=3Dleftmenu2><A class=3Dleftmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?categoryid=3D121">Usin=
+g=20
+            ABC</A></P>
+            <P class=3Dleftmenu2>&nbsp;</P></TD></TR>
+        <TR>
+          <TD></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=3Dtop align=3Dleft width=3D"80%" bgColor=3D#ffffff =
+colSpan=3D2>
+      <TABLE cellPadding=3D15 width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD>
+            <H2>Using Clarion's Business Rules, Part 3</H2>
+            <H3>by Nardus Swanevelder</H3>
+            <P><FONT size=3D-2>Published 2004-11-05&nbsp; &nbsp; <A=20
+            =
+href=3D"http://www.clarionmag.com/cmag/v6/v6n11bizrules3.html?pFriendly=3D=
+true">Printer-friendly=20
+            version</A> </FONT></P>
+            <P>Last time I covered the two methods you need to be able =
+to add=20
+            your own rules at runtime. In this article I am going to =
+look at=20
+            what you need to do to implement the methods at runtime.</P>
+            <H4>Queues</H4>
+            <P>If you read my article Translation, Clarion Style you =
+will see=20
+            that I populate a global queue with the translation strings. =
+To=20
+            solve the problem of applying the rules at runtime I use the =
+same=20
+            technique. Create two global queues as =
+follows:</P><PRE>RulesQueue         QUEUE,PRE(RQ)
+Name                 STRING(255)
+Description          STRING(255)
+Expression           STRING(255)
+ControlUse           STRING(255)
+Offset               BYTE
+                   END
+
+
+RulesControlQueue  QUEUE,PRE(RCQ)
+Name                 STRING(255)
+ControlUse           STRING(255)
+Action               BYTE
+                   END</PRE>
+            <P>A word of caution: this technique can potentially cause a =
+
+            problem. If two threads are reading the queue at exactly the =
+same=20
+            time, but retrieving different values, then there may be =
+data=20
+            corruption. This is unlikely, since the queues are being =
+read from=20
+            forms, but it could happen in theory. There are a number of=20
+            solutions. One is tol use the In-Memory-Database-Driver =
+(IMDD) to=20
+            replace the queue structure, since IMDD is thread safe. You =
+could=20
+            also use a class to copy the contents of the queues to=20
+            thread-specific queues at the start of each thread, or you =
+could=20
+            also use two physical tables, and just clear them out at the =
+start=20
+            of each session. The problem with the last option is that =
+you will=20
+            generate unnecessary traffic if you are running your =
+application=20
+            over the network. To accommodate those who do not own IMDD I =
+will=20
+            continue using the queue =
+technique.</P><PRE>Access:Rules.Open()
+Access:Rules.UseFile()
+Free(RulesQueue)
+RUL:Name =3D ''
+Set(RUL:Name_Key,RUL:Name_Key)
+Loop
+   If Access:Rules.Next() &lt;&gt; Level:Benign THEN BREAK.
+   RQ:Name        =3D Clip(RUL:Name)
+   RQ:Description =3D Clip(RUL:Description)
+   RQ:Expression  =3D Clip(RUL:Expression)
+   RQ:ControlUse  =3D Clip(RUL:Control)</PRE>
+            <P>If the user entered the control with a leading ? remove =
+it.</P><PRE>   If Sub(RQ:ControlUse,1,1) =3D '?'
+      RQ:CONTROLUse =3D Sub(RQ:ControlUse,2,Len(Clip(RQ:ControlUse)))
+   End
+   RQ:Offset      =3D Clip(RUL:Offset)
+   Add(RulesQueue,RQ:ControlUse)
+   If error() then stop(error()).
+End
+Access:Rules.Close()
+
+Access:ControlsPerRule.Open()
+Access:ControlsPerRule.UseFile()
+Free(RulesControlQueue)
+CON:Name =3D ''
+Set(CON:Name_Key,CON:Name_Key)
+Loop
+   If Access:ControlsPerRule.Next() &lt;&gt; Level:Benign THEN BREAK.
+   RCQ:Name       =3D Clip(CON:Name)
+   RCQ:CONTROLUSE =3D Clip(CON:Control)</PRE>
+            <P>If the user entered the control with a leading ? remove =
+it.</P><PRE>   If Sub(RCQ:ControlUse,1,1) =3D '?'
+      RCQ:CONTROLUse =3D Sub(RCQ:ControlUse,2,Len(Clip(RCQ:ControlUse)))
+   End
+   RCQ:RuleAction =3D Clip(CON:RuleAction)
+   Add(RulesControlQueue,RCQ:Name)
+   If error() then stop(error()).
+End
+Access:ControlsPerRule.Close()</PRE>
+            <P>Now you have the rules available in a global queue. The =
+next=20
+            question is how do you populate these on a procedure? I have =
+tried=20
+            various things but in the end settled on the following: I =
+create a=20
+            local queue and populate it with all the controls on the =
+window,=20
+            then I go through the rules queue and check to see if the =
+control in=20
+            the rule is used on the window. If it is used I add the =
+rule, and=20
+            then add the controls linked to that rule.</P>
+            <P>How do you populate the local queue? The easiest way is =
+to use a=20
+            template. The code is as =
+follows:</P><PRE>Free(LocalWindowQueue)
+#FOR(%Control)</PRE>
+            <P>Some controls do not have a <CODE>%ControlUse</CODE> =
+variable, so=20
+            I populate the ControlUse with the control after I remove =
+the ?. For=20
+            example the <CODE>?OK</CODE> control does not have a=20
+            <CODE>ControlUse</CODE> variable so I remove the ? and=20
+            <CODE>ControlUse</CODE> becomes <CODE>OK</CODE>.</P><PRE>    =
+#IF(%ControlUse =3D '')
+   LWQ:ControlUse =3D Upper(Sub('%control',2,Len('%control')))
+    #Else
+   LWQ:ControlUse =3D Upper('%ControlUse')
+    #ENDIF
+   LWQ:Control    =3D %Control
+   Add(LocalWindowQueue,LWQ:ControlUse)
+#ENDFOR</PRE>
+            <P>You could also use <CODE>Prop:NextField</CODE> and=20
+            <CODE>Prop:Use</CODE> to populate the queue. See my article =
+<A=20
+            =
+href=3D"http://www.clarionmag.com/cmag/v4/v4n08pageofpages.html">Adding=20
+            Page of Pages to a Clarion Report</A> for an example of =
+using=20
+            <CODE>Prop:NextField</CODE>.</P>
+            <P>You now have a queue with all the window controls and=20
+            <CODE>ControlUse</CODE> variables.</P>
+            <P>Next you have to run through the rules to determine if =
+the rule=92s=20
+            control is used on this window.</P><PRE>  !Run through rules
+  Loop I# =3D 1 to Records(RulesQueue)
+     Get(RulesQueue,I#)
+     If not error()
+        !Check if rule's control is on screen
+        LWQ:ControlUse =3D RQ:ControlUse
+        Get(LocalWindowQueue,LWQ:ControlUse)
+        If not error()
+           !If rule's control is on screen - add rule
+%RuleBaseName.AddRule(Clip(RQ:Name),Clip(RQ:Description),|
+  Clip(RQ:Expression),LWQ:Control,RQ:Offset)
+              !Check rule's rule-action-control
+              RCQ:Name =3D RQ:Name
+              Get(RulesControlQueue,RCQ:Name)
+              If not error()
+                 Position# =3D Pointer(RulesControlQueue) + 1
+                 Loop
+                    !If rule's rule-action-control is on window -=20
+                    ! add control to rule
+                    LWQ:ControlUse =3D RCQ:ControlUse
+                    Get(LocalWindowQueue,LWQ:ControlUse)
+                    If not error()
+%RuleBaseName.AddControlToRule(Clip(RCQ:Name),LWQ:Control,|
+  RCQ:RuleAction)
+                    End
+                    Get(RulesControlQueue,Position#)
+                    If error() or RCQ:Name &lt;&gt; RQ:Name then break.
+                    Position# +=3D 1
+                 End
+              End
+         End
+     End
+  End</PRE>
+            <P>That=92s it, you have added the rules to the procedure. I =
+have=20
+            created a template that will do most of this for you =
+automatically.=20
+            You can obviously move all of the code to the template =
+yourself.</P>
+            <P>But as they say on television, that is not all, if you =
+phone now=85=20
+            Just joking - the one thing that is still outstanding is the =
+
+            question of how to override/disable a rule on a specific=20
+            procedure.</P>
+            <P>Just add another table, another global queue, another =
+procedure=20
+            and some code and you are done.</P><PRE>OverrideProcPerRule
+RuleName    String(255)
+RuleProcedureName    String(255)
+
+RulesProcQueue         QUEUE,PRE(RPQ)
+Name    STRING(255)
+ProcName    STRING(255)
+                         END</PRE>
+            <P>And add the following code to the template:</P><PRE>      =
+     RPQ:Name     =3D Clip(RQ:Name)
+           RPQ:ProcName =3D '%Procedure'
+           Get(RulesProcQueue,RPQ:Name,RPQ:ProcName)
+           If error()
+    !Add the rule
+</PRE>
+            <P>This will only give you the ability to disable a rule on =
+a=20
+            procedure but not to change it. I believe however that this =
+will=20
+            give you enough functionality to start play with dynamic =
+business=20
+            rules.</P>
+            <H4>Implement the template</H4>
+            <P>Copy the template to the template folder, it can be the =
+Clarion=20
+            folder or the 3rdparty\Template folder. Register the =
+template in=20
+            Clarion. You do not have to load the Clarion Business Rule =
+Manager=20
+            templates. My template adds all the necessary code.</P>
+            <P><STRONG>Add the global extension</STRONG></P>
+            <OL>
+              <LI>Open your app and go to the global settings.=20
+              <LI>Click on the Extensions button and then click on the =
+Insert=20
+              button.=20
+              <LI>Scroll down until you get to Rules Template and then =
+click on=20
+              Global External Business Rules Manager.=20
+              <LI>Complete the Global Rule Description=20
+              <LI>You can leave all the other prompts as the default =
+values are=20
+              sufficient for now. </LI></OL>
+            <P><STRONG>Add the local extension</STRONG></P>
+            <OL>
+              <LI>Open the procedure where you want to be able to =
+process rules=20
+              at runtime. Click on Extensions, choose External Rules =
+Local.=20
+              <LI>You can leave all the prompts as the default values =
+are=20
+              sufficient for now. </LI></OL>
+            <P><STRONG>Run the application</STRONG></P>
+            <OL>
+              <LI>Start the application, click on Browse, and then =
+choose Rules.=20
+
+              <LI>Add a rule. For example::=20
+              <UL>
+                <LI>Name: <CODE>Gender</CODE>=20
+                <LI>Description: <CODE>Gender must be M or F</CODE>=20
+                <LI>Expression: <CODE>PEO:Gender =3D 'F' or PEO:Gender =
+=3D=20
+                'M'</CODE>=20
+                <LI>Control: <CODE>PEO:Gender</CODE>=20
+                <LI>Offset: <CODE>3</CODE> </LI></UL>
+              <LI>Add a control to the rule, click on Controls tab and =
+insert a=20
+              record.=20
+              <UL>
+                <LI>Control: <CODE>?Ok</CODE>=20
+                <LI>Rules Action: <CODE>RuleAction:Disable</CODE> =
+</LI></UL>
+              <LI>Add a procedure name where you do not want the rule to =
+be=20
+              enforced, click on the Procedure tab and insert a record=20
+              <UL>
+                <LI>Procedure name: <CODE>Update_rules</CODE> </LI></UL>
+              <LI>Close the form and on the browse click on the refresh =
+button.=20
+              This will refresh the global queues with the new rule. =
+Close the=20
+              browse and test the new rule on the Browse the People file =
+update=20
+              form. </LI></OL>
+            <H4>Disadvantages</H4>
+            <P>This approach has three disadvantages that I know of:</P>
+            <UL>
+              <LI>It always instantiates <CODE>RulesCollection</CODE> =
+class and=20
+              <CODE>RulesManager</CODE> class even if there are no rules =
+
+              applicable to the procedure=20
+              <LI>It always instantiates a local queue and populates it =
+with=20
+              controls on the window, even if no rules are applicable on =
+the=20
+              window=20
+              <LI>If SoftVelocity changes the Rule Manager you might =
+have to=20
+              change some of the functionality described in the series =
+of=20
+              articles. There is a rumor that the new Rules Manager =
+provides=20
+              four levels of severity rather than the original=20
+              "broken/non-broken" pair. Once this is released, rule =
+expressions=20
+              based on "zero/non-zero" only may give unpredictable =
+results.=20
+            </LI></UL>
+            <H4>Advantages</H4>
+            <P>This approach also has several advantages:</P>
+            <UL>
+              <LI>You could also use this as part of your Translation =
+solution.=20
+              Now all your business rules messages can be translated.=20
+              <LI>You can change your rules at runtime =96 need I say =
+more?=20
+            </LI></UL>
+            <H4>Summary</H4>
+            <P>In this series I have shown you how you can extend =
+Clarion=92s=20
+            business rules functionality to use rules defined in tables. =
+In this=20
+            way you can supply new business rules (global or local to a=20
+            procedure) to your customers without having to update the=20
+            application itself =96 instead, you simply send along an =
+updated set=20
+            of rules tables. </P>
+            <P align=3Dcenter><A=20
+            =
+href=3D"http://www.clarionmag.com/cmag/v6/files/v6n10bizrules.zip">Downlo=
+ad=20
+            the source</A></P><!-- member or subscriber page -->
+            <BLOCKQUOTE>
+              <HR>
+            </BLOCKQUOTE>
+            <P><I><FONT size=3D-1><A=20
+            href=3D"mailto:Nardus.Swanevelder@za.didata.com">Nardus=20
+            Swanevelder</A> was born and raised in South Africa. He was =
+a=20
+            networking engineer for seven years before he moved over to =
+the=20
+            commercial side of the business. Nardus has developed a Sale =
+Cycle=20
+            Management system for the Information and Communication =
+Technology=20
+            industry. He has been programming in Clarion since 1989, and =
+holds=20
+            B.Com and MBA degrees. In his spare time Nardus lectures =
+Financial=20
+            Management to B. Com Hons students at North-West University. =
+
+            </FONT></I></P></TD></TR>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3D0 cellPadding=3D5 width=3D"100%" =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE cellSpacing=3D0 cellPadding=3D6 width=3D"100%"=20
+                  bgColor=3D#ede2c9 border=3D0>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <H4><A name=3Dcomments>Reader Comments</A></H4>
+                        <P><A=20
+                        =
+href=3D"http://www.clarionmag.com/cmag/comments.frm?articleID=3D13171">Ad=
+d=20
+                        a comment</A></P>
+                        <P=20
+              =
+align=3Dleft><B></B></P></TD></TR></TBODY></TABLE></TD></TR></TBODY></TAB=
+LE></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=3Dtop align=3Dright width=3D"10%" bgColor=3D#517f9f =
+height=3D1><IMG=20
+      =
+src=3D"http://www.clarionmag.com/images/tabs1/rightcorner2.gif"><BR>
+      <TABLE height=3D"100%" cellSpacing=3D1 cellPadding=3D1 =
+width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dtop><IMG height=3D1 src=3D"" width=3D90><BR>
+            <P class=3Drightmenuhdr align=3Dleft><B>Related Topics</B>=20
+            <P>
+            <P class=3Drightmenu1 align=3Dleft><A class=3Drightmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/topics.html?subcategoryid=3D304">B=
+usiness=20
+            Rules </A>( 3 )</P>
+            <P class=3Drightmenuhdr align=3Dleft><B>Related Articles</B> =
+
+            <P>
+            <P class=3Drightmenu1 align=3Dleft><A class=3Drightmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/v6/v6n10bizrules1.html">Using=20
+            Clarion's Business Rules, Part 1</A>=20
+            <P>
+            <P class=3Drightmenu1 align=3Dleft><A class=3Drightmenu1=20
+            =
+href=3D"http://www.clarionmag.com/cmag/v6/v6n10bizrules2.html">Using=20
+            Clarion's Business Rules, Part 2</A>=20
+            <P></P></TD></TR></TBODY></TABLE></TD></TR>
+  <TR vAlign=3Dtop>
+    <TD bgColor=3D#517f9f colSpan=3D4>
+      <P><FONT size=3D1>Copyright =A9 1999-2004 by <A=20
+      href=3D"http://www.covecomm.com/">CoveComm Inc.</A> All Rights =
+Reserved.=20
+      Reproduction in any form without the express written consent of =
+CoveComm=20
+      Inc., except as described in the <A=20
+      =
+href=3D"http://www.clarionmag.com/cmag/subscriptionagreement.html">subscr=
+iption=20
+      agreement</A>, is prohibited.=20
+</FONT></P></TD></TR></TBODY></TABLE></BODY></HTML>
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/cmlogo2.gif
+
+R0lGODlhCQFUAPcAAAAIhAAQhAgQhAgQjAgYjBAYjBAhjBghjBghlBgplCEplCExlCkxlCkxnCk5
+nDE5nDFCnDlCnDlCpTlKpUJKpUJSpUpSpUpSrVJarVpjrVpjtWNrtWtrtWtztWtzvXNzvXN7vXt7
+vXuEvXuExoSExoSMxoyMxoyUxoyUzpSUzpSczpyczpylzpyl1qWl1qWt1q2t1q211q213rW13rW9
+3r293r3G3r3G58bG58bO587O587W587W79bW79be797e797n7+fn9+fv9+/v9+/39/f39/f3//f/
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////7+/iH5BAEAAP8ALAAAAAAJAVQA
+AAj+AP8JHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuX
+MGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOK
+HUu2rNmzaNOqXWvUgogVLFiQwMDW4IYTcVWAoFBXo4ohSAILRlJkxUIdiBGTyEhhcGC+DGM4nix4
+yA4WdBF+cAw5YYgflJEMOcHwhOPMCEUM1lEQcGjBrJluKPI68JAMCR2zyKhisoqGkmtTjm1w8+DO
+Bi0EES6ag0LTqxWqht2aOfGkKZgLBoFQd0Ygk4H+ANc+OchB44KRE9xAPvBuhNAHozY4PfB1hBhK
+zFiO5L7R+uThZpB3GIU2XnuD4VAcZwdlgKB78E3m30AATvjPBirkQJtgQczQgVKNPTjEQQRaVEJo
+pC0U3IOBCTgQeo8d5NqDHxoUn3ypRUeQDRvaZoMJ8ynVw2RCpJABBh3UQFmKBJVY0ZCU/RCZYzFU
+GQMNNtiQA2iTKUgQjEio948NlO0gAgYYbPBCj4IVcdCN1B1UYXWBBVFCVB1M9kJyM9o24GDvWVTb
+lIMppMNkBYGpHgaT3XYQmVTaGFqQAs1JUAk29DkEDSRYwJQPju15UIiDuSiQkxMBONmdCq0Y2EL+
+fYb5JYME4eDYiAnNgGhBcMZZkKUNnoADmz8wWRSpgYmXUG+DwVAQqhLlMJgN4Anmg4qOLfSCY6Yq
++iy3C3EpGKsD9SoYpcAKZAGa7KIpwn72IZXdYB8stBp3TQJ6kWMgMCsYtoUqRIJjG8x6HEGqeqkQ
+e4NJSZC58f6q40CxDofUDtkeBkPBJOpbUZ6FVuDYYgm5isRCA5dqcHo7gstQrLzWZuo/6f6zww84
+56wzzjMg5ZiFD0ELkZKCOdxnD61mnNC2B79Iq0BEDGaEQy64LBDEgSGN8MRYCQ2R1w45loJAMCh9
+kMmwmv2PtwP97BDIgpF8dYLitri1rwIB8cL+zE05OFgI+3o8EcOCVSCQ34KJULLaBdmaYKJPI4uE
+Cw5JLurcgtnAgWNaV8r1P64VMQPHTYFAcOCCBSqRq7ieOtgOiwMa1+wsxKCDEZORLhDb/yAeGLkM
+OVbDw9P+UzcSLtacJO6C1VCjUnBSGhHYDLHp7ECQ/ouQye0p7HTT/8AdGL4NuV1u8YRnTeHnA4Hq
+WA6AIxU96hBOxOhgupv+9/YsIuEw5OADU73CxrUb2UAgxxNQzQZyqBJQwARQCkzPjDI/QQkuIkzT
+Xr7wRhDuMWd453maAINWwOJdiHOe4yADkaA4gWCgWkDzSQUrQj2F9Ml7Aongq87WniHAwFP+mhEh
+v0iINwMOJIE0Y59ADrWYE9TtckQ5Ef7ohwTVPcQCjmkhQUwwRIOY7AdCYFPiFsK79CEBePYyIeYC
+c0CBmBFpC8xhl8hnFPEhgY4TqSFC/PW7Dfjxj3DCoUDQNpB5XXBB4MPiYCjXEMsRL3ME0SHyaoYB
+F9wQj0e5n2B+Y8HUTYQ/D+JhwAaiv8FwMoTg+4f5GGJHEzySjQTxHRJ6kLKIUUwwOMCkUhwjSIPk
+YAiG6ZgnJdI/JDxvIIQkCNFUhkqWDYR5gZlaQzJot/NBMpKc+9wQcjmVPklTIYPpAR71KKn+tbGD
+jPsHNAMjhCCm8lDMTNso14iEcx6uNjH+jIrJ+LYeXn5rmBA5HoK8mE4uOuaUK4uRNQWTA4aY0Tyv
+rKdBJKlEmmkoMEXgplLMGENJatF1ACVi/475j2QWBJTRbKZC22Y1hBwPof8wYkE0KSE+hSYIYiKK
+GHW5tl1tsH4PURULPkDUohqVj0gAITLTGb7JxACRzjzirRRCzR1G1J4rtFhBcFcEFmyAAhTIwApo
+46akIBUJzilIBtbZnz+FtCEYmydCxFgQkxaEolBdqUDsiAQh5LRs/ozZNWcamvvYCqIGAcxTk1Kx
+GmTGAoBtKUizdoLKWvayln3eKmMnGN3ZlSA0DYxSd/e09lEmBqgRAUo1eFWEwHOzqkT+gu62Vlak
+lLI9EzKnQG7LQoc6hgbolGtBshfVnqZSIJJrD0zpidWBhNaWrnOu7u63FF21p7b/RFAbHcdacEot
+uN11Ky4TKiuD1BK3ERqsQV7LwWqCZoD/ONE3kyKtAHWHRW10DGIXQlzkLVW4BakqEoBo3OIS5Ky1
+6Vw5YYkQRX5uObF57+FoM9qkRPY1Q5DeZNtzQDsGkyG8XWxJmUoQMRKHdwYBgRhDM8H0Mhgh3IVu
+EvvDIyTUi2HzXUoG3EcZKApTu/+gwWlESpj/hnfB5yLtcQ3yAra+TsMLlWhCHCxj4zlmgEjwQU5B
+pB/E4OAFJEUIWMdM5jKXeSBnfohomQmS5oWsGc1kdgiGaoCYHMAgfo0cM0Pa/CsR+PmjfQm0oAdN
+6EIb+tCITrSiF83oRjv60ZCOtKQnTelKW/rSmM60pjfN6U57+tOgDrWoR03qUpv61KhOtapXzepW
+u/rVsI61rI8SEAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/1x1.gif
+
+R0lGODlhAQABAPcAAHNzc///////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////yH5BAEAAAAALAAAAAABAAEA
+AAgEAAEEBAA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/ads/cmagbanner5.gif
+
+R0lGODlh1AE8APcAAAAxMQA5MQA5OQBCOQBCQgBCUgBKSgBSSgBSUgBaUgBaWgBjYwgpYwg5OQhC
+QghKSghSUghaWghjYxApaxBCQhBKShBSUhBraxgAaxgAcxgAexhKShhSUhhjYxhrayEAcyEAeyEA
+hCEAjCEAlCEIeyEIjCEYcyFaWiFzaykIeykIhCkIjCkIlCkQeykQjCkQlClSUilaWilzczEQhDEQ
+jDEQlDEQnDEYezEYhDEYjDEYlDEYnDEhjDFjczFrazFzczkYhDkYjDkYlDkYnDkhhDkhjDkhlDkp
+jDkxlDk5lDmEhEIhnEIphEIpjEIpnEJClEJKlEJzc0KMjEoplEoppUoxlEpKlEpSnEqMhFI5lFI5
+nFI5rVJanFJjnFJzc1KMjFpCnFpCpVpCrVpKlFprnFpznFqUlFqcnGNKnGNKpWNKrWNSnGN7jGN7
+pWOEpWOcnGtSrWuMjGuMpWuUpWucnHNjpXNjtXNjvXOcrXOlpXtjvXtrpXtrrXutrYRrvYR7tYSt
+rYS1tYytrYy1tYy9vZSErZSEtZSEvZSExpSMtZSMvZStrZS9vZyMxpyMzpyUtZyUvZyUzpycnJy1
+tZy9vZzGxqWMzqWUvaWUzqWU1qWctaWcvaWcxqWlpaWtvaW1vaXGxqXOzq2c1q2lva2lxq2lzq2l
+1q2tva21ta29va3Gxq3OzrWl1rWtvbWt3rW1tbW1vbW1zrW9vbW9xrXGxrXOzrXW1r21xr21zr21
+1r213r29xr291r3Gxr3Gzr3Ozr3W1sa9xsa91sa93sa958bGxsbGzsbOzsbO1sbW1sbe3s7Gzs7G
+1s7G587Ozs7O1s7W1s7e3s7n59bO59bO79bW1tbW3tbe3tbe59bn597W3t7W797e3t7e597e797n
+597n797v7+fe9+fn5+fn7+fn9+fv7+fv9+f39+/n9+/v7+/v9+/39/fv9/f39/f3//f////3////
+/////////////////////////////////////////////////////ywAAAAA1AE8AAAI/gBDCBxI
+sKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaNHgn1CihxJsqTJkyhTqlzJsqXLlzBjypxJs6bN
+mzhz6tzJs2cfgT6DCh1KtKjRo0iTKl26EyjTp1CjSp1KtarVpU6vat3KtavXr2BnZg1LtqzZs2jT
+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
+ZNnS5UuYMWXOpFnT5k2cOXXu5NlzZEAAADs=
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/blank.gif
+
+R0lGODlhDwAFAPcAAP8AAP//////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////yH5BAEAAAAALAAAAAAPAAUA
+AAgQAAEIHEiwoMGDCBMqXJgwIAA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel1.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIKgADCBwY
+YADBAAkkVBg4YIKHEi8EDvAwIgaOHAInjJiRo2MABRxgdOwYEAA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel3.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIJwAHBBhI
+MEAFCAcKBmgxYkODgjlutABxgWCOiy88MBh48WKKDgIDAgA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel1.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIEwADCBxI
+sKDBgwgHDiiYIEKFgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel3.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIEwADCBxI
+sKDBgwQHHKzw4EDBgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel4top.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIHwADTCiB
+I4fBHAMqtDhosACGGQxzOJQRcWJFDBQZBgQAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel6top.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIIABzCMxR
+AwSDAAMFnpiAMCEMDAMS5pCBoYBEihYTYgwIADs=
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel4top.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIJwADCBwg
+oQOJFQM3iGghQ4ZACSFeNHSoAMOKiQ4jkMAo4wCGFBwDAgA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel6top.gif
+
+R0lGODlhCAAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAAGAAAIKQBRhMDQ
+IIDBADJipPAg4aCMhys6MDD48OGJDQMQVoThYYHGiiY6FAgIADs=
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/rightcorner1.gif
+
+R0lGODlhDgACAPcAAAAIhAAQhBAhjBgxjBg5jClClClKlDFSlDljnEJrnEpznEp7nFJ7nP//////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAADgACAAAIEwATHBAQ
+oKDBgwEYKFRgAOHBgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/svlogo3.jpg
+
+/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEP
+ERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4e
+Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAoAHgDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2vwna
+wpepLdwiSPHAIyAa7pf7G2/8ecX/AHyKx4rnStC8MXWuatIIbKyhMszhckAdgB1J6Ae4qz4M1aDx
+JPqNu+g6ppMunvGkiXqINxddw27WYHAxnnjIq1Tk4uVtCeZXsPt47ZbyR5xaPbn7qiDBUfn/AJ9K
+W7vtFtl81tMEsH/PSJA2PwHNVPF2sWGnarH4dttKv9V1Ka1N1JDaKn7mDdt8x2dlAXdxgZJweKbG
+uj2GkxatoFotwupSKlrFDOPJlLH5ZBgkKCMHjsRkdacrQhz1NENPmdkaNje+G76HzbSK2mTuVUcH
+0I7VY/4kv/PnF/3zWRY6Daa5bJrumxvpGoglSykMkhHUOBw65yM9eK0fDlxbai89ncxpBf2zFJUU
+5ViDgsp7j26isvaUpKMoSupbfdf56Fcsk2mtib/iS/8APnF/3zR/xJf+fOL/AL5rU/sqD+6Pyqhe
+LaW2rWWm+QzyXW4grjCBQTk/ljilKcYK8n/T0QJN7GZq1j4buoTJcaRbXDRKSoMQJ+griG134aDr
+pdj/AN+1r1n+yoP7o/Kvk/45eHV8PfEC+tocpb3WLqEDgAPnIHsGDAegArtwlNVZOLZzYiTguZI9
+TbxB8MR10uw/79rUbeIfhaOulWH/AH6Wvm2ZWH8bfnVGcP8A32/Oux4NLqcyxPkfTbeI/hV30rT/
+APv0tV7rxL8J/IfOlaf93/nktfL02/n94351RuNxUguxHpms3hbdS1X8hPibcaNeeLb240G1S2sG
+b5FQYUnuQPSisrUEVVOKKTjbQadz7+1/w5N4q8Bz6Lb3cVq8jwyhpULRv5civsYAg7W24OK8+8S/
+EXXfEHhgXyXVzo6Wfh+61OYabIU8+c3HkWYDEbgj7WfbxngHNegXHhGz8TR6Xc3Gratp8th5hhaw
+mCE+Yu1s5U5+XIHpk1Yl+GHhQ3llLEuowW1rbWts1jHNiC4S2YtCJARltrEnqM981GHq0oRXPr12
+27/erfM2qQnJ6HnOsJcRL8SvF15q+pPeadp8GjwvBOUSSc26hxtHGPNlBAHQknvXSrpA8EaRoem2
+TT3LadYGaaO4nzg7dnyA8fKckKPTjvXWz+A9Dn8NanoEh1AwalqD6jNMJAJVnaQSBlIGOGVcAgjA
+AOa04PD9iINPS+ub3UZbEkrPdYLy5OfnwoBwcYwB0HvXLmFSdahyUrXut9rK3rro2vO2q3WmHioT
+5pdn+NzitDvb+aK0OmT3j2dt5RD25xAckvLvx1PPA6Yz6imLLcyW0ksc0kLJm5zC21mllcKmT1xs
+B4HpW/qfhWC2vJr7TpJnhmeSSS2VhmF3GDLGDwSB/Ceo6dqytDsBYzW0mvCe4tgUCXlkCLaTy+EM
+seC0bDPPOM57GvnamTYi/wC5n7uq31Se1v8AC0uuqXyXfHEw+0tdPw/zH6Rrd9fXN3eXOtxJf6ex
+FzYxzER7PLyCq4+bJJ5Ppn0qfRY5Z9RGo3d3dl9O06OaQmXksVLBSTyRjdkdz1p174a0ttRgTS9V
+lk+0yNDcxRyxuyxEFsjjIAb1/ve9a+v6TbWK3V/GNRmW6CxSWkDfI2RtyQFJ4GT9aKuFxEFGrUtp
+7zu21ezu7dlJRaS2XmKNSDvGPXTbpp+l7kHgu6vZ7+2imupp0GnmaTe5OHkkDKD9FOB7CvK/2uLZ
+I9T0C9x80sE0RPsjIR/6Ga9f8D2ckJv7yQT7ZpBHCZ1Ku0aA7SQQMdcdB0rx39ru7RtT0CyB+eKC
+aUj2dkA/9ANexw9GcYw573133trb8LHFmLTTt5f8E8EnNUJz1q3O1UJ2r6mTPHiVZ2qjMatTt1qj
+Oa55M1RnagflP0oqPUD8pormk9TeOx+i3hW9CWignHAraa7hJLZAJ60UV5h3At6inKlPwGKf/aC/
+5NFFACG/Q9QD9TWVrNvPOpuNJ1B9NvQPlYKHik9nQ9R7jB96KKuLs7oLXOT1bxP4p8OSwTP4I0++
+u7qdYnn0yYEzLg5yCoZTgZycqAOT3rvbLVDPaxTSwvbSOgZonYFkPoSpI/I0UVrWs4RaVn8yIppt
+XJv7QT+9XyL8dvEyeIfiJfzwSb7a1AtISDkEJncR7FixHsRRRW+AXvNnPi37qR51NOPWqM0y+tFF
+ejJs40ijNMKpTSiiisJM1SMy+kypooornlubRWh//9k=
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/cwmantislogo120.gif
+
+R0lGODlheAAXAPcAAAVtqABxrQNzrgZzrQp0rQx0rBR0pxB3rQN0tQR4tgF4vHF9gwB7wgB8wwF9
+xAN+xAZ/xSWGuTCEsTGLvUOIrVaMpz+Ls06Tt0uSuHOlv36kuH+pvweCwgyCxg6DxwiAxQKFyAOK
+zxGFxxWHyBmJyR6LygaN0QmO0wWQ1wmP0wOT2gCT3QGT3AOU3gSV3gaT2giT2QqX3w+V2A2Z3xeX
+1x+Y1BKZ3SeNwCCMyyaQzC2TziyTzjKWzzGRyDaazDyayjSX0DWc0TiZ0Dua0Tug0xOb4BCa4BWc
+4B2f4Ryf4Rid4R+g4iGh4iaj4i+n5Cul4zKo5Dmr5Tus5T2t5UCd0kKe01enz0ag1Eih1Eqj1U6k
+1kuj01Gm1lSn11ao2Fur2WClyWOpzHSowXyrwmGu2mex3Gqz3W613Xy21XO33na530Cu5kWw50Ow
+5kiy50qz50yz6E606FG16FS36Va46Vm56V276mS963294Xi64G3B7HHD7HXF7XLE7XrH7n3I7ouI
+h4KKj4aKjoWMj42Li46LiomKi4KMkYGMko6YnISktYypuKyrqra7vby7usC/voStw4+wwom2zJm8
+zaO+zLa+wbzAwqvE07zJ0IfC44PA4o7F5YrE5IPL74DK74XM75XJ55LI5p3N6J/O6ZzM6I3P8InN
+8I/Q8ZXS8ZrV8p7W867S5aLQ6q/W7arU67nU5LHX7bTZ7rrc76HY86fa9KXZ86rb9Knb9K/d9azc
+9LLf9bHe9bXg9rzj98bFxcbIys/OzdDPzsLO1MnR1cLV3tPV1tTU09ra2d7e3eDf38bf7Nje4MPh
+8cHg8cfj8sLm98rk887m9MXn+Mfo+Mrp+M7r+dTn8dPp9dbq9dvt99ns99fu+tXu+tHs+djv+t/y
+++Lh4OTk4+bl5efm5unp6e7u7evr6vDv7+Xy+eX0/On0+ur3/en2/e73/PPz8/Hx8fT09Pb29fj3
+9/H5/fb7/vb7/fn5+fr6+vr9//39/fz8/P7///////7+/v3+//n7/SwAAAAAeAAXAAAI/gD5CRxI
+sKDBgwgTKuSnzxyxZfEWSpxIsaLFixffFQtyIdw9jCBDihw50R64MCkCRCqXj6RLkOqYMbtmkZ5M
+ZyLzlaOkIuWBYfBegqT27Nk8jKMaNMBiMZvSDiLdFaux4kSAABbC2RN6EcmKFdSQKmVa0WkDqCDl
+gbPy1erVDeb0cT3IjRatagS9ghW71OK/aNGwgdRHbhKLtlcDEMAUdG7BTl/3EORWrRo9hf9CcRky
+hEumeUn7wuoyRAgWM9r+delChlQWL83QUaGShR+2MleEVCEDjV+a1bLIXCFDk9+7YTS+Vk0cQEKy
+gXfmzMk1Rw4qen/c1HnGbx8qOVKi/sD5s45fJ+m87rCxM+1Wk69M3Mj/RmfNGm/0SsWJEqWNnm8C
+naHUgA1kERoW0DhAYAMkqKOUgkqJcM1T6nSw4APX6PDggCXgcw84Wyi3HHMZDFSEiF8todwM86SC
+4gpS8MPGVy0oZ4QfL67QjV7U2PEiE/vw44FSWnzxIChjuSKEEGVAs4NSsQyYwwdKtfIUkg2McEYO
+SqmhYQMifNkANuZIgqJbiQ1gjUAnrsDEETQ6UeMK0nzCXyfSxPBVOzOuMAMUc/4RxVdQ7GFoOjy2
+mYouTCSRRDrtDNgOP1nMpslY/MiCRxqiVKGUKAPO44VSpDyVh1Jl8BOKUl58CQs//yQ0wMArwshw
+JnNXTfAPP216M8tXU/AzxVe74EOLH3zgosRX2/SZCj9QfJULZCtINhCPy67wBh+l9IIPP+gM6A9B
+B3Ky4KcD7hNNK60485SADajBD5ZafIkTDw0ocAkRL6LJHBq8fsWOLl/FwU8cX+FSR47NJszPG1/Z
+Qq21AvH4x4tOzOOgUt+eQQYZmYz1JRmgxNoAqEoFKZBZHaShVBr8bKIUF/bywwMDCICRo7+JCaBM
+m+sQvILBCK9wiwtfeXIK0is0vAIuD0c8MT1TTIEKj/zwsoccgH51iz8QKMVKKxCauxQOSrkyDxDo
+pjwQy2YPwQwWSplRMw8IAADDzv64JhaBDV8FXfDBX6minDfszMBsn1BDvIItpny1Ri5f+aHXM3Bk
+7g0/a3w1Cz9XnJvDgaGfi3IDKvPDcjQQEuhKzT0MAEKOI/YdAAeBC010wnC+6HTjEQstIi08vreC
+C0Z85cI2qlcRdgMPCBHNgdCgzWAJbaP+9lPzmgwmHvvYm88ECdBeu+0hrCD40IQ/bUvyKzyheNOM
+R/34Pn3oebwd+PBYTRRzWsESaiEQRhSCEIEIBCEKwcAGMlAQCnSgBCfYQEMEQhAUBMQCUGC+ENgu
+MQYwBAUdSIhDDGKEIywhIhZIQRVisBC+4EcwHkHDGtrwhjjMoQ516AhGJKICN3pQwYtMYDsCWEAD
+jdihEpfIxBw+xzEWyQc8xHEMYFRCDD54gXL8RQAMrKIeUAyjGBHSD3mcg4rAsMQYfgCDlBSAAor4
+BTjGSMc6EiQf8njHOKpoCUgswhfGSIY5ImLHQtYRj2dMBjjI4Q579MOQkLRjP/SRj0dGEiMBAQA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/rightcorner2.gif
+
+R0lGODlhDgAMAPcAAAAIhAAQhBAhjBgxjBg5jClClClKlDFSlDljnEJrnEpznEp7nFF/n///////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAADgAMAAAIOgAZCBSo
+gECAgwgDDFxoIOHBhQsPOIQYMSHFhQUQXhy4QMDDjQIRfATJYIBCkgxEomTQcSUDAy4RBAQAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel2.gif
+
+R0lGODlhAQAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAAAQAGAAAICQALbLiR
+o2BAAAA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel2.gif
+
+R0lGODlhAQAGAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAAAQAGAAAICQADCAxQ
+YENAAAA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel4.gif
+
+R0lGODlhCAABAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAABAAAICgALYJCR
+o2DBgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel6.gif
+
+R0lGODlhCAABAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAABAAAICgBzCBQo
+A0OBgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel4.gif
+
+R0lGODlhCAABAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAABAAAICgALYGgh
+o2DBgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/unsel6.gif
+
+R0lGODlhCAABAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAABAAAICgBlCBTY
+AkOBgAAAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel7.gif
+
+R0lGODlhCAACAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAACAAAIDwApYJCR
+o2BBChwIGswREAA7
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.clarionmag.com/images/tabs1/sel9.gif
+
+R0lGODlhCAACAPcAAAAIhAAQhAgQhAgYhAgYjBAhjBApjBgpjBgxjCExlCE5lDFKnDlKnEJanEJa
+pUJjnEpjpUprpVJrpVJzpVJ7nFJ7pVKEpVpzrVqEpVqErVqMpWOErWOMpWOMrWuMrWuMtWuUrXOU
+tXOctXuctYSlvYytxpS1xqW9zq3G1rXG1rXO1r3O3r3W3sbW3s7W587e59be59bn797n7+fv7+fv
+9+/v9+/39/f3//f/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////ywAAAAACAACAAAIDQBzCBQo
+AwOFgQQNBgQAOw==
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.clarionmag.com/cmag/cmag.css
+
+BODY {
+	MARGIN-TOP: 0px; FONT-WEIGHT: normal; MARGIN-LEFT: 0px; COLOR: #000000; =
+LINE-HEIGHT: normal; MARGIN-RIGHT: 0px; FONT-STYLE: normal; FONT-FAMILY: =
+Verdana, Arial, Helvetica, sans-serif
+}
+.fourpointline {
+	MARGIN-TOP: 0pt; MARGIN-BOTTOM: 0pt; LINE-HEIGHT: 4pt
+}
+.rss {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; MARGIN: 5pt 10px 0pt; LINE-HEIGHT: =
+8pt
+}
+.formPrompt {
+	MARGIN-TOP: 2pt; FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN-BOTTOM: =
+0pt; COLOR: #2e2e2e; LINE-HEIGHT: 10pt
+}
+.formPromptBold {
+	MARGIN-TOP: 2pt; FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN-BOTTOM: 0pt; =
+COLOR: #2e2e2e; LINE-HEIGHT: 10pt
+}
+.formField {
+	MARGIN-TOP: 2pt; FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN-BOTTOM: =
+0pt; COLOR: #000000; LINE-HEIGHT: 10pt
+}
+.browseHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt
+}
+.productName {
+	MARGIN-TOP: 1pt; FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN-BOTTOM: =
+0pt; LINE-HEIGHT: 10pt
+}
+.productNameRegular {
+	MARGIN-TOP: 1pt; FONT-WEIGHT: normal; FONT-SIZE: 10pt; MARGIN-BOTTOM: =
+0pt; LINE-HEIGHT: 10pt
+}
+.productCompany {
+	MARGIN-TOP: 1pt; FONT-WEIGHT: bold; FONT-SIZE: 7pt; MARGIN-BOTTOM: 0pt; =
+LINE-HEIGHT: 8pt
+}
+.productCategories {
+	MARGIN-TOP: 1pt; FONT-WEIGHT: normal; FONT-SIZE: 7pt; MARGIN-BOTTOM: =
+0pt; LINE-HEIGHT: 8pt
+}
+.productShortDesc {
+	MARGIN-TOP: 2pt; FONT-SIZE: 9pt; MARGIN-BOTTOM: 2pt
+}
+.productPrice {
+	MARGIN-TOP: 1pt; FONT-SIZE: 8pt; MARGIN-BOTTOM: 0pt; LINE-HEIGHT: 9pt
+}
+.productVersion {
+	MARGIN-TOP: 1pt; FONT-SIZE: 8pt; MARGIN-BOTTOM: 0pt; LINE-HEIGHT: 9pt
+}
+.topic {
+	MARGIN-TOP: 4pt; FONT-WEIGHT: normal; FONT-SIZE: 8pt; MARGIN-BOTTOM: =
+6pt; MARGIN-LEFT: 15pt; LINE-HEIGHT: 10pt
+}
+P.productCat {
+	MARGIN-TOP: 4pt; PADDING-LEFT: 12pt; FONT-WEIGHT: bold; FONT-SIZE: =
+10pt; MARGIN-BOTTOM: 6pt; TEXT-INDENT: -6pt; LINE-HEIGHT: 10pt
+}
+P.productSubCat {
+	MARGIN-TOP: 2pt; PADDING-LEFT: 18pt; FONT-WEIGHT: normal; FONT-SIZE: =
+9pt; MARGIN-BOTTOM: 2pt; TEXT-INDENT: -6pt; LINE-HEIGHT: 10pt
+}
+P.productSubCatSel {
+	MARGIN-TOP: 2pt; PADDING-LEFT: 18pt; FONT-WEIGHT: bold; FONT-SIZE: 9pt; =
+MARGIN-BOTTOM: 2pt; TEXT-INDENT: -6pt; LINE-HEIGHT: 10pt
+}
+P.pageFooter {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; MARGIN: 2pt 20pt; LINE-HEIGHT: =
+10pt
+}
+.saleHeader {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; MARGIN: 12pt 5pt 15pt; LINE-HEIGHT: =
+10pt
+}
+.saleText {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; MARGIN: 8pt 5pt; LINE-HEIGHT: =
+12pt
+}
+.saleHeader:link {
+	COLOR: #a20000; TEXT-DECORATION: none
+}
+.saleHeader:visited {
+	COLOR: #a20000; TEXT-DECORATION: none
+}
+.saleHeader:active {
+	COLOR: #a20000; TEXT-DECORATION: none
+}
+.saleHeader:hover {
+	COLOR: #a20000; TEXT-DECORATION: none
+}
+A.productCat:link {
+	COLOR: #00095c
+}
+A.productCat:visited {
+	COLOR: #00095c
+}
+A.productCat:active {
+	COLOR: #00095c
+}
+A.productCat:hover {
+	COLOR: #966600
+}
+A.productSubCat:link {
+	COLOR: #00095c
+}
+A.productSubCat:visited {
+	COLOR: #00095c
+}
+A.productSubCat:active {
+	COLOR: #00095c
+}
+A.productSubCat:hover {
+	COLOR: #966600
+}
+A.productSubCatSel:link {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.productSubCatSel:visited {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.productSubCatSel:active {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.productSubCatSel:hover {
+	COLOR: #966600; TEXT-DECORATION: none
+}
+.tabtext {
+	MARGIN-TOP: 5pt; FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN-BOTTOM: 4pt; =
+LINE-HEIGHT: 12pt
+}
+A.tabtext:link {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.tabtext:visited {
+	COLOR: #3d47a5; TEXT-DECORATION: none
+}
+A.tabtext:active {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.tabtext:hover {
+	COLOR: #966600; TEXT-DECORATION: none
+}
+P {
+	FONT-SIZE: 10pt; LINE-HEIGHT: 13pt; FONT-FAMILY: Verdana, Arial, =
+Helvetica, sans-serif
+}
+P.leftmenu1 {
+	PADDING-RIGHT: 12pt; MARGIN-TOP: 2pt; PADDING-LEFT: 12pt; FONT-WEIGHT: =
+bold; FONT-SIZE: 7.5pt; MARGIN-BOTTOM: 2pt; TEXT-INDENT: -6pt; =
+LINE-HEIGHT: 10pt
+}
+P.leftmenu2 {
+	PADDING-RIGHT: 12pt; MARGIN-TOP: 4pt; PADDING-LEFT: 14pt; FONT-WEIGHT: =
+bold; FONT-SIZE: 7.5pt; MARGIN-BOTTOM: 1pt; TEXT-INDENT: -6pt; =
+LINE-HEIGHT: 10pt
+}
+P.indexArtHdr {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 10pt 10pt 0pt; LINE-HEIGHT: =
+12.5pt
+}
+P.indexArtText {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0pt 10pt 8pt; LINE-HEIGHT: =
+12pt
+}
+P.noteText {
+	FONT-WEIGHT: bold; FONT-SIZE: 7.5pt; MARGIN: 0pt 10pt 8pt; LINE-HEIGHT: =
+9pt
+}
+P.indexNewsHdr {
+	MARGIN-TOP: 6pt; PADDING-LEFT: 6pt; FONT-WEIGHT: normal; FONT-SIZE: =
+7.5pt; MARGIN-BOTTOM: 0pt; TEXT-INDENT: -6pt; LINE-HEIGHT: 9pt
+}
+P.topicmenu {
+	FONT-WEIGHT: bold; FONT-SIZE: 7.5pt; MARGIN: 0pt 10pt 7pt 2pt; =
+LINE-HEIGHT: 8pt
+}
+P.rightmenuhdr {
+	MARGIN-TOP: 15pt; PADDING-LEFT: 6pt; FONT-WEIGHT: bold; FONT-SIZE: =
+10pt; MARGIN-BOTTOM: 10pt; COLOR: #fdbb1b; LINE-HEIGHT: 12pt
+}
+P.rightmenu1 {
+	MARGIN-TOP: 10pt; PADDING-LEFT: 12pt; FONT-WEIGHT: normal; FONT-SIZE: =
+8pt; MARGIN-BOTTOM: 10pt; COLOR: #ffffff; TEXT-INDENT: -6pt; =
+LINE-HEIGHT: 10pt; MARGIN-RIGHT: 10pt
+}
+P.topmenu {
+	MARGIN-TOP: 3pt; PADDING-LEFT: 4pt; FONT-WEIGHT: bold; FONT-SIZE: 8pt; =
+MARGIN-BOTTOM: 3pt; COLOR: #ffffff; LINE-HEIGHT: 8pt
+}
+P.whitemenu {
+	MARGIN-TOP: 2pt; FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN-BOTTOM: =
+2pt; COLOR: #ffffff
+}
+P.survey {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; MARGIN: 4pt 0pt 0pt 2pt; COLOR: =
+#000000; LINE-HEIGHT: 8pt; TEXT-ALIGN: left
+}
+P.surveyItem {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; MARGIN: 3pt 0pt 0pt; COLOR: =
+#000000; LINE-HEIGHT: 8pt; TEXT-ALIGN: left
+}
+P.surveyBar {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; MARGIN: 0pt; COLOR: #000000; =
+LINE-HEIGHT: 8pt; TEXT-ALIGN: left
+}
+TD.message {
+	PADDING-LEFT: 4pt; FONT-SIZE: 8pt; MARGIN-LEFT: 6pt; LINE-HEIGHT: 10pt; =
+MARGIN-RIGHT: 12pt
+}
+TD.formField {
+	PADDING-LEFT: 2pt; FONT-SIZE: 8pt; MARGIN-LEFT: 2pt; LINE-HEIGHT: 10pt; =
+MARGIN-RIGHT: 2pt
+}
+A:link {
+	COLOR: #00095c
+}
+A:visited {
+	COLOR: #3d47a5
+}
+A:active {
+	COLOR: #00095c
+}
+A:hover {
+	COLOR: #966600
+}
+A.indexArtHdr:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.indexArtHdr:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.indexArtHdr:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.indexArtHdr:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.indexNewsHdr:link {
+	TEXT-DECORATION: none
+}
+A.indexNewsHdr:visited {
+	TEXT-DECORATION: none
+}
+A.indexNewsHdr:active {
+	TEXT-DECORATION: none
+}
+A.indexNewsHdr:hover {
+	COLOR: #966600; TEXT-DECORATION: none
+}
+A.whitemenu:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.whitemenu:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.whitemenu:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.whitemenu:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.topmenu:hover {
+	COLOR: #cccccc; TEXT-DECORATION: none
+}
+A.leftmenu1:link {
+	COLOR: #00095c; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+A.leftmenu1:visited {
+	COLOR: #3d47a5; TEXT-DECORATION: none
+}
+A.leftmenu1:active {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.leftmenu1:hover {
+	COLOR: #966600; TEXT-DECORATION: none
+}
+A.topicmenu:link {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.topicmenu:visited {
+	COLOR: #3d47a5; TEXT-DECORATION: none
+}
+A.topicmenu:active {
+	COLOR: #00095c; TEXT-DECORATION: none
+}
+A.topicmenu:hover {
+	COLOR: #966600; TEXT-DECORATION: none
+}
+A.rightmenu1:link {
+	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+A.rightmenu1:visited {
+	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+A.rightmenu1:active {
+	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+A.rightmenu1:hover {
+	COLOR: #cccccc; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+TD {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: verdana, helvetica, =
+arial, sans-serif
+}
+TR {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: verdana, helvetica, =
+arial, sans-serif
+}
+LI {
+	FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: verdana, helvetica, =
+arial, sans-serif
+}
+UL {
+	MARGIN-TOP: 15pt; MARGIN-BOTTOM: 15pt; COLOR: #000000; FONT-FAMILY: =
+verdana, helvetica, arial, sans-serif
+}
+H1 {
+	FONT-SIZE: 14pt; COLOR: #ff0000; FONT-FAMILY: verdana, helvetica, =
+arial, sans-serif
+}
+H2 {
+	MARGIN-TOP: 15pt; FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #2d4555; =
+FONT-FAMILY: verdana, helvetica, arial, sans-serif
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: =
+verdana, helvetica, arial, sans-serif
+}
+H4 {
+	MARGIN-TOP: 40px; FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #2d4555; =
+FONT-FAMILY: verdana, helvetica, arial, sans-serif
+}
+H5 {
+	FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: verdana, helvetica, arial, =
+sans-serif
+}
+H6 {
+	FONT-SIZE: 7.5pt; COLOR: #ff0000; FONT-FAMILY: verdana, helvetica, =
+arial, sans-serif
+}
+PRE {
+	FONT-SIZE: 8.5pt; COLOR: #000000; FONT-FAMILY: courier
+}
+.checkbox {
+	FONT-SIZE: 10px; LINE-HEIGHT: 10px
+}
+.checkboxSection {
+	MARGIN-TOP: 12px; FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN-BOTTOM: =
+4px
+}
+
+------=_NextPart_000_0000_01C4C3EC.BAC7A200--
