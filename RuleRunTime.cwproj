@@ -75,7 +75,6 @@
     <Library Include="BRuleOk.ico" />
     <Library Include="BRules.ico" />
     <Library Include="MARK.ICO" />
-    <Library Include="SVwall.jpg" />
   </ItemGroup>
   <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
 </Project>

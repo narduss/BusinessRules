@@ -25,6 +25,11 @@ log/
 !*.sql
 !*.mht
 !*.pptx
+!*.tps
+!*.brf
+!*.gif
+!*.app
+!*.dct
 !Accessory/Template/Win/*.tpl
 !Accessory/Libscr/Win/*.inc
 !Accessory/Libscr/Win/*.clw

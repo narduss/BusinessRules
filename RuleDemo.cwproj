@@ -1,11 +1,11 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{E6E03553-7606-496A-8394-E867BE95787B}</ProjectGuid>
+    <ProjectGuid>{80B49F78-448B-4283-AC92-AA8991529347}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
     <OutputType>Exe</OutputType>
-    <AssemblyName>RuleDemoC10</AssemblyName>
-    <OutputName>RuleDemo</OutputName>
+    <AssemblyName>RuleDemo</AssemblyName>
+    <OutputName>RuleDemoC10</OutputName>
     <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1</DefineConstants>
     <Model>Dll</Model>
   </PropertyGroup>
@@ -28,16 +28,16 @@
     <Compile Include="About_RuleDemoC10.clw">
       <Generated>true</Generated>
     </Compile>
-    <Compile Include="RuleDemoC10.clw">
+    <Compile Include="RuleDemo.clw">
       <Generated>true</Generated>
     </Compile>
-    <Compile Include="RuleDemoC10001.clw">
+    <Compile Include="RuleDemo001.clw">
       <Generated>true</Generated>
     </Compile>
-    <Compile Include="RULEDEMOC10_BC.CLW">
+    <Compile Include="RULEDEMO_BC.CLW">
       <Generated>true</Generated>
     </Compile>
-    <Compile Include="RuleDemoC10_BC0.CLW">
+    <Compile Include="RuleDemo_BC0.CLW">
       <Generated>true</Generated>
     </Compile>
     <Compile Include="Updatepeople_RuleDemoC10.clw">
@@ -46,7 +46,6 @@
     <Library Include="BRuleNo.ico" />
     <Library Include="BRuleOk.ico" />
     <Library Include="BRules.ico" />
-    <Library Include="RuleDemo.EXE.manifest" />
     <Library Include="RuleDemoC10.EXE.manifest" />
     <Library Include="SVwall.jpg" />
   </ItemGroup>

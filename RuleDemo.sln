@@ -2,11 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 # Clarion 2.1.0.2447
-Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "RuleDemoC10", "RuleDemoC10.cwproj", "{E6E03553-7606-496A-8394-E867BE95787B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{{2150E333-8FDC-42A3-9474-1A3956D46DE8}}"
 	ProjectSection(SolutionItems) = postProject
-		RuleDemoC10.app = RuleDemoC10.app
+		RuleDemo.app = RuleDemo.app
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{FDF6EECE-8F2A-4D7E-8B91-93FDA9218707}"
@@ -25,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dictionary", "Dictionary", 
 		PEOPLE2.dct = PEOPLE2.dct
 	EndProjectSection
 EndProject
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "RuleDemo", "RuleDemo.cwproj", "{80B49F78-448B-4283-AC92-AA8991529347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -35,5 +35,9 @@ Global
 		{E6E03553-7606-496A-8394-E867BE95787B}.Debug|Win32.ActiveCfg = Debug|Win32
 		{E6E03553-7606-496A-8394-E867BE95787B}.Release|Win32.Build.0 = Release|Win32
 		{E6E03553-7606-496A-8394-E867BE95787B}.Release|Win32.ActiveCfg = Release|Win32
+		{80B49F78-448B-4283-AC92-AA8991529347}.Debug|Win32.Build.0 = Debug|Win32
+		{80B49F78-448B-4283-AC92-AA8991529347}.Debug|Win32.ActiveCfg = Debug|Win32
+		{80B49F78-448B-4283-AC92-AA8991529347}.Release|Win32.Build.0 = Release|Win32
+		{80B49F78-448B-4283-AC92-AA8991529347}.Release|Win32.ActiveCfg = Release|Win32
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,54 @@
+RULESFILENAME                  RulesTest.brf
+
+ALLRULEBASEDESCRIPTION         Procedure Rules
+ERRORINDICATORIMAGE            BRuleNo.ico
+RULEOFFSETRIGHT                3
+
+VIEWRULESHEADERICON            BRules.ico
+VIEWRULESVALIDRULEICON         BRuleOk.ico
+VIEWRULESBROKENRULEICON        BRuleNo.ico
+
+
+
+  RULEBASES                    1
+  RULEBASENAME                 GlobalPeople
+  RULEBASEDESCRIPTION          Global People Rules
+
+    RULES                      1
+    RULENAME                   PEO:IdCheck
+    RULEDESCRIPTION            People Id cannot be 0
+    RULEEXPRESSION             PEO:Id >0
+    RULELINKFIELD              PEO:Id
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?CancelButton
+      RULEENABLEDISABLECONTROL ?Close
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save
+
+    RULES                      2
+    RULENAME                   PEO:FirstNameCheck
+    RULEDESCRIPTION            FirstName cannot be empty
+    RULEEXPRESSION             PEO:FirstName<>''
+    RULELINKFIELD              PEO:FirstName
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?CancelButton
+      RULEENABLEDISABLECONTROL ?Close
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save
+
+    RULES                      4
+    RULENAME                   PEO:GenderCheck
+    RULEDESCRIPTION            Please choose M or F
+    RULEEXPRESSION             CHOOSE(PEO:Gender = 'M' or PEO:Gender = 'F' , 1, 0)
+    RULELINKFIELD              PEO:Gender
+    RULESHOWINDICATOR          1
+      RULEENABLEDISABLECONTROL ?Ok
+      RULEENABLEDISABLECONTROL ?OkButton
+      RULEENABLEDISABLECONTROL ?CancelButton
+      RULEENABLEDISABLECONTROL ?Close
+      RULEENABLEDISABLECONTROL ?Accept
+      RULEENABLEDISABLECONTROL ?Save

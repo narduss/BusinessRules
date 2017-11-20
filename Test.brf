@@ -1,0 +1,64 @@
+RULESFILENAME                  Test.brf
+
+ALLRULEBASEDESCRIPTION         Procedure Rules
+ERRORINDICATORIMAGE            BRuleNo.ico
+RULEOFFSETRIGHT                3
+
+VIEWRULESHEADERICON            BRules.ico
+VIEWRULESVALIDRULEICON         BRuleOk.ico
+VIEWRULESBROKENRULEICON        BRuleNo.ico
+
+
+
+  RULEBASES                    1
+  RULEBASENAME                 Test
+  RULEBASEDESCRIPTION          Test
+
+    RULES                      1
+    RULENAME                   PEO:IdCheck
+    RULEDESCRIPTION            PEO:Id OK
+    RULEEXPRESSION             Browse_People('PEO:Id',Action,1)
+    RULELINKFIELD              PEO:Id
+    RULESHOWINDICATOR          1
+
+    RULES                      2
+    RULENAME                   PEO:FirstNameCheck
+    RULEDESCRIPTION            PEO:FirstName OK
+    RULEEXPRESSION             Browse_People('PEO:FirstName',Action,1)
+    RULELINKFIELD              PEO:FirstName
+    RULESHOWINDICATOR          1
+
+    RULES                      3
+    RULENAME                   PEO:LastNameCheck
+    RULEDESCRIPTION            PEO:LastName OK
+    RULEEXPRESSION             Browse_People('PEO:LastName',Action,1)
+    RULELINKFIELD              PEO:LastName
+    RULESHOWINDICATOR          1
+
+    RULES                      4
+    RULENAME                   PEO:GenderCheck
+    RULEDESCRIPTION            PEO:Gender OK
+    RULEEXPRESSION             Browse_People('PEO:Gender',Action,1)
+    RULELINKFIELD              PEO:Gender
+    RULESHOWINDICATOR          1
+
+    RULES                      5
+    RULENAME                   PEO:MyMemoCheck
+    RULEDESCRIPTION            PEO:MyMemo OK
+    RULEEXPRESSION             Browse_People('PEO:MyMemo',Action,1)
+    RULELINKFIELD              PEO:MyMemo
+    RULESHOWINDICATOR          1
+
+    RULES                      6
+    RULENAME                   PEO:MyBlobCheck
+    RULEDESCRIPTION            PEO:MyBlob OK
+    RULEEXPRESSION             Browse_People('PEO:MyBlob',Action,1)
+    RULELINKFIELD              PEO:MyBlob
+    RULESHOWINDICATOR          1
+
+    RULES                      7
+    RULENAME                   PEO:MyBlobTextCheck
+    RULEDESCRIPTION            PEO:MyBlobText OK
+    RULEEXPRESSION             Browse_People('PEO:MyBlobText',Action,1)
+    RULELINKFIELD              PEO:MyBlobText
+    RULESHOWINDICATOR          1
